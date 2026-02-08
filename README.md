@@ -1,5 +1,3 @@
-# Bennett-Woods-Website
-
 # Bennett Woods Neighborhood Website
 
 A professional, welcoming website for the Bennett Woods neighborhood in Smyrna, GA.
