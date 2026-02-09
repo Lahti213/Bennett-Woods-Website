@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,590 +15,587 @@
             box-sizing: border-box;
         }
 
-```
-    :root {
-        --color-cream: #faf8f4;
-        --color-dark-green: #1a3a2e;
-        --color-sage: #7d9d8c;
-        --color-terracotta: #d4896b;
-        --color-charcoal: #2d2d2d;
-        --color-white: #ffffff;
-        --color-light-sage: #e8f0ed;
-    }
-
-    body {
-        font-family: 'DM Sans', sans-serif;
-        background: var(--color-cream);
-        color: var(--color-charcoal);
-        line-height: 1.6;
-        overflow-x: hidden;
-    }
-
-    /* Navigation */
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        background: rgba(250, 248, 244, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    nav .container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 1.5rem 3rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--color-dark-green);
-        letter-spacing: -0.02em;
-    }
-
-    nav ul {
-        display: flex;
-        gap: 3rem;
-        list-style: none;
-    }
-
-    nav a {
-        color: var(--color-charcoal);
-        text-decoration: none;
-        font-size: 0.95rem;
-        font-weight: 500;
-        transition: color 0.3s;
-        position: relative;
-    }
-
-    nav a::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--color-terracotta);
-        transition: width 0.3s;
-    }
-
-    nav a:hover {
-        color: var(--color-dark-green);
-    }
-
-    nav a:hover::after {
-        width: 100%;
-    }
-
-    /* Hero Section */
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-        background: linear-gradient(135deg, var(--color-dark-green) 0%, #2d5a47 100%);
-        padding-top: 80px;
-    }
-
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: 
-            radial-gradient(circle at 20% 50%, rgba(212, 137, 107, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(125, 157, 140, 0.1) 0%, transparent 50%);
-        animation: pulse 15s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-        0%, 100% { opacity: 0.5; }
-        50% { opacity: 1; }
-    }
-
-    .hero-content {
-        max-width: 1400px;
-        padding: 0 3rem;
-        text-align: center;
-        position: relative;
-        z-index: 10;
-        animation: fadeInUp 1s ease-out;
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
+        :root {
+            --color-cream: #faf8f4;
+            --color-dark-green: #1a3a2e;
+            --color-sage: #7d9d8c;
+            --color-terracotta: #d4896b;
+            --color-charcoal: #2d2d2d;
+            --color-white: #ffffff;
+            --color-light-sage: #e8f0ed;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--color-cream);
+            color: var(--color-charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-    }
 
-    .hero h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(3rem, 8vw, 6.5rem);
-        font-weight: 900;
-        color: var(--color-white);
-        line-height: 1.1;
-        margin-bottom: 2rem;
-        letter-spacing: -0.03em;
-    }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 248, 244, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
 
-    .hero-subtitle {
-        font-size: clamp(1.1rem, 2vw, 1.5rem);
-        color: rgba(255, 255, 255, 0.9);
-        max-width: 700px;
-        margin: 0 auto 3rem;
-        font-weight: 400;
-        line-height: 1.6;
-    }
-
-    .cta-button {
-        display: inline-block;
-        padding: 1.2rem 3rem;
-        background: var(--color-terracotta);
-        color: var(--color-white);
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 1rem;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 10px 30px rgba(212, 137, 107, 0.3);
-    }
-
-    .cta-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 15px 40px rgba(212, 137, 107, 0.4);
-        background: #c2745a;
-    }
-
-    .scroll-indicator {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-        0%, 100% { transform: translateX(-50%) translateY(0); }
-        50% { transform: translateX(-50%) translateY(-10px); }
-    }
-
-    .scroll-indicator span {
-        display: block;
-        width: 24px;
-        height: 40px;
-        border: 2px solid rgba(255, 255, 255, 0.5);
-        border-radius: 20px;
-        position: relative;
-    }
-
-    .scroll-indicator span::before {
-        content: '';
-        position: absolute;
-        top: 8px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 4px;
-        height: 8px;
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 2px;
-        animation: scroll 1.5s infinite;
-    }
-
-    @keyframes scroll {
-        0% { opacity: 1; top: 8px; }
-        100% { opacity: 0; top: 20px; }
-    }
-
-    /* Section Styles */
-    section {
-        padding: 8rem 3rem;
-        position: relative;
-    }
-
-    .container {
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .section-title {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        font-weight: 700;
-        color: var(--color-dark-green);
-        margin-bottom: 1rem;
-        letter-spacing: -0.02em;
-    }
-
-    .section-subtitle {
-        font-size: 1.2rem;
-        color: var(--color-sage);
-        max-width: 600px;
-        margin-bottom: 4rem;
-        line-height: 1.7;
-    }
-
-    /* About Section */
-    #about {
-        background: var(--color-white);
-    }
-
-    .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 3rem;
-        margin-top: 5rem;
-    }
-
-    .feature-card {
-        padding: 3rem 2.5rem;
-        background: var(--color-cream);
-        border-radius: 20px;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid transparent;
-    }
-
-    .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-        border-color: var(--color-sage);
-    }
-
-    .feature-icon {
-        font-size: 3.5rem;
-        margin-bottom: 1.5rem;
-        display: block;
-        opacity: 0.9;
-    }
-
-    .feature-card h3 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.6rem;
-        color: var(--color-dark-green);
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
-
-    .feature-card p {
-        color: var(--color-charcoal);
-        line-height: 1.8;
-        font-size: 1rem;
-    }
-
-    /* Gallery Section */
-    #gallery {
-        background: var(--color-light-sage);
-    }
-
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2rem;
-        margin-top: 4rem;
-    }
-
-    .gallery-item {
-        aspect-ratio: 4/3;
-        border-radius: 16px;
-        background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-dark-green) 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--color-white);
-        font-size: 1.2rem;
-        font-weight: 600;
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.4s;
-    }
-
-    .gallery-item::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
-        opacity: 0;
-        transition: opacity 0.4s;
-    }
-
-    .gallery-item:hover {
-        transform: scale(1.03);
-    }
-
-    .gallery-item:hover::before {
-        opacity: 1;
-    }
-
-    .gallery-note {
-        text-align: center;
-        margin-top: 3rem;
-        font-style: italic;
-        color: var(--color-sage);
-        font-size: 1.05rem;
-    }
-
-    /* Announcements */
-    #announcements {
-        background: var(--color-white);
-    }
-
-    .announcements-container {
-        max-width: 900px;
-        margin: 3rem auto 0;
-    }
-
-    .announcement-card {
-        background: var(--color-cream);
-        padding: 2.5rem 3rem;
-        border-radius: 16px;
-        margin-bottom: 2rem;
-        border-left: 4px solid var(--color-terracotta);
-        transition: all 0.3s;
-    }
-
-    .announcement-card:hover {
-        transform: translateX(8px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    }
-
-    .announcement-date {
-        font-size: 0.9rem;
-        color: var(--color-sage);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 0.75rem;
-        font-weight: 600;
-    }
-
-    .announcement-card h3 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.6rem;
-        color: var(--color-dark-green);
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
-
-    .announcement-card p {
-        color: var(--color-charcoal);
-        line-height: 1.8;
-    }
-
-    /* Services */
-    #services {
-        background: var(--color-dark-green);
-        color: var(--color-white);
-    }
-
-    #services .section-title {
-        color: var(--color-white);
-    }
-
-    #services .section-subtitle {
-        color: rgba(255, 255, 255, 0.8);
-    }
-
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 4rem;
-    }
-
-    .service-card {
-        background: rgba(255, 255, 255, 0.08);
-        padding: 2.5rem 2rem;
-        border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.4s;
-        backdrop-filter: blur(10px);
-    }
-
-    .service-card:hover {
-        background: rgba(255, 255, 255, 0.12);
-        transform: translateY(-5px);
-        border-color: var(--color-terracotta);
-    }
-
-    .service-card h4 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-        color: var(--color-white);
-        font-weight: 600;
-    }
-
-    .service-card p {
-        color: rgba(255, 255, 255, 0.85);
-        line-height: 1.7;
-    }
-
-    /* Contact */
-    #contact {
-        background: var(--color-cream);
-    }
-
-    .contact-wrapper {
-        max-width: 700px;
-        margin: 3rem auto 0;
-    }
-
-    .contact-form {
-        background: var(--color-white);
-        padding: 3rem;
-        border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-    }
-
-    .form-group {
-        margin-bottom: 2rem;
-    }
-
-    label {
-        display: block;
-        font-weight: 600;
-        color: var(--color-dark-green);
-        margin-bottom: 0.75rem;
-        font-size: 0.95rem;
-    }
-
-    input, textarea, select {
-        width: 100%;
-        padding: 1rem 1.25rem;
-        border: 2px solid #e8e8e8;
-        border-radius: 12px;
-        font-family: 'DM Sans', sans-serif;
-        font-size: 1rem;
-        transition: all 0.3s;
-        background: var(--color-white);
-    }
-
-    input:focus, textarea:focus, select:focus {
-        outline: none;
-        border-color: var(--color-sage);
-        box-shadow: 0 0 0 4px rgba(125, 157, 140, 0.1);
-    }
-
-    textarea {
-        resize: vertical;
-        min-height: 140px;
-    }
-
-    button[type="submit"] {
-        width: 100%;
-        padding: 1.2rem;
-        background: var(--color-dark-green);
-        color: var(--color-white);
-        border: none;
-        border-radius: 12px;
-        font-size: 1.05rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
-        font-family: 'DM Sans', sans-serif;
-    }
-
-    button[type="submit"]:hover {
-        background: #14301f;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(26, 58, 46, 0.3);
-    }
-
-    .success-message {
-        background: #d4edda;
-        color: #155724;
-        padding: 1.25rem;
-        border-radius: 12px;
-        margin-bottom: 1.5rem;
-        display: none;
-        border: 1px solid #c3e6cb;
-    }
-
-    /* Footer */
-    footer {
-        background: var(--color-charcoal);
-        color: var(--color-white);
-        padding: 4rem 3rem 2rem;
-        text-align: center;
-    }
-
-    footer .logo {
-        color: var(--color-white);
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-    }
-
-    .footer-links {
-        margin: 2rem 0;
-        font-size: 1.5rem;
-    }
-
-    .footer-links a {
-        color: var(--color-white);
-        margin: 0 1rem;
-        text-decoration: none;
-        transition: transform 0.3s;
-        display: inline-block;
-    }
-
-    .footer-links a:hover {
-        transform: scale(1.2);
-    }
-
-    footer p {
-        color: rgba(255, 255, 255, 0.6);
-        margin: 0.5rem 0;
-        font-size: 0.95rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
         nav .container {
-            padding: 1rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-dark-green);
+            letter-spacing: -0.02em;
         }
 
         nav ul {
-            gap: 1.5rem;
-            font-size: 0.85rem;
+            display: flex;
+            gap: 3rem;
+            list-style: none;
         }
 
-        section {
-            padding: 5rem 1.5rem;
+        nav a {
+            color: var(--color-charcoal);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
         }
 
-        .features-grid,
-        .gallery-grid,
-        .services-grid {
-            grid-template-columns: 1fr;
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-terracotta);
+            transition: width 0.3s;
         }
 
-        .contact-form {
-            padding: 2rem 1.5rem;
+        nav a:hover {
+            color: var(--color-dark-green);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-dark-green) 0%, #2d5a47 100%);
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 137, 107, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(125, 157, 140, 0.1) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            padding: 0 3rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 900;
+            color: var(--color-white);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -0.03em;
         }
-    }
-</style>
-```
 
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--color-terracotta);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(212, 137, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(212, 137, 107, 0.4);
+            background: #c2745a;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 24px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 2px;
+            animation: scroll 1.5s infinite;
+        }
+
+        @keyframes scroll {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 20px; }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 8rem 3rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--color-dark-green);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-sage);
+            max-width: 600px;
+            margin-bottom: 4rem;
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--color-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+
+        .feature-card {
+            padding: 3rem 2.5rem;
+            background: var(--color-cream);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border-color: var(--color-sage);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--color-dark-green);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--color-charcoal);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background: var(--color-light-sage);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/3;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-dark-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 1.2rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-note {
+            text-align: center;
+            margin-top: 3rem;
+            font-style: italic;
+            color: var(--color-sage);
+            font-size: 1.05rem;
+        }
+
+        /* Announcements */
+        #announcements {
+            background: var(--color-white);
+        }
+
+        .announcements-container {
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .announcement-card {
+            background: var(--color-cream);
+            padding: 2.5rem 3rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--color-terracotta);
+            transition: all 0.3s;
+        }
+
+        .announcement-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .announcement-date {
+            font-size: 0.9rem;
+            color: var(--color-sage);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .announcement-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--color-dark-green);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .announcement-card p {
+            color: var(--color-charcoal);
+            line-height: 1.8;
+        }
+
+        /* Services */
+        #services {
+            background: var(--color-dark-green);
+            color: var(--color-white);
+        }
+
+        #services .section-title {
+            color: var(--color-white);
+        }
+
+        #services .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-5px);
+            border-color: var(--color-terracotta);
+        }
+
+        .service-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--color-white);
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        #contact {
+            background: var(--color-cream);
+        }
+
+        .contact-wrapper {
+            max-width: 700px;
+            margin: 3rem auto 0;
+        }
+
+        .contact-form {
+            background: var(--color-white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: var(--color-dark-green);
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid #e8e8e8;
+            border-radius: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: var(--color-white);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--color-sage);
+            box-shadow: 0 0 0 4px rgba(125, 157, 140, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--color-dark-green);
+            color: var(--color-white);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        button[type="submit"]:hover {
+            background: #14301f;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(26, 58, 46, 0.3);
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            display: none;
+            border: 1px solid #c3e6cb;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-charcoal);
+            color: var(--color-white);
+            padding: 4rem 3rem 2rem;
+            text-align: center;
+        }
+
+        footer .logo {
+            color: var(--color-white);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            margin: 2rem 0;
+            font-size: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--color-white);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            transform: scale(1.2);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                padding: 1rem 1.5rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            section {
+                padding: 5rem 1.5rem;
+            }
+
+            .features-grid,
+            .gallery-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -616,244 +612,241 @@
         </div>
     </nav>
 
-```
-<section id="home" class="hero">
-    <div class="hero-content">
-        <h1>Bennett Woods</h1>
-        <p class="hero-subtitle">Smyrna's premier neighborhood where community, comfort, and convenience come together</p>
-        <a href="#contact" class="cta-button">Get in Touch</a>
-    </div>
-    <div class="scroll-indicator">
-        <span></span>
-    </div>
-</section>
-
-<section id="about">
-    <div class="container">
-        <h2 class="section-title">Why Bennett Woods?</h2>
-        <p class="section-subtitle">Nestled in the heart of Smyrna, just minutes from Atlanta, Bennett Woods offers the perfect blend of suburban tranquility and urban accessibility.</p>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">🌳</span>
-                <h3>Beautiful Setting</h3>
-                <p>Tree-lined streets, well-maintained homes, and green spaces create a peaceful atmosphere you'll love coming home to every day.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">👨‍👩‍👧‍👦</span>
-                <h3>Strong Community</h3>
-                <p>Friendly neighbors, regular events, and an active community spirit make Bennett Woods feel like home from day one.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">📍</span>
-                <h3>Prime Location</h3>
-                <p>Easy access to I-285, close to shopping, dining, parks, and excellent schools. Everything you need is nearby.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🏠</span>
-                <h3>Quality Homes</h3>
-                <p>Well-built residences with character and charm, maintained by owners who take pride in their properties.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🛡️</span>
-                <h3>Safe & Secure</h3>
-                <p>A close-knit neighborhood where neighbors look out for each other, creating a safe environment for families.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">⭐</span>
-                <h3>Great Value</h3>
-                <p>Exceptional quality of life at a price point that makes homeownership achievable for families and professionals.</p>
-            </div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Bennett Woods</h1>
+            <p class="hero-subtitle">Smyrna's premier neighborhood where community, comfort, and convenience come together</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
         </div>
-    </div>
-</section>
-
-<section id="gallery">
-    <div class="container">
-        <h2 class="section-title">Explore Our Neighborhood</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">📸 Street Views</div>
-            <div class="gallery-item">📸 Community Parks</div>
-            <div class="gallery-item">📸 Local Homes</div>
-            <div class="gallery-item">📸 Green Spaces</div>
-            <div class="gallery-item">📸 Neighborhood Events</div>
-            <div class="gallery-item">📸 Area Amenities</div>
+        <div class="scroll-indicator">
+            <span></span>
         </div>
-        <p class="gallery-note">Photo gallery coming soon! We're collecting beautiful shots of our neighborhood to share.</p>
-    </div>
-</section>
+    </section>
 
-<section id="announcements">
-    <div class="container">
-        <h2 class="section-title">Community News</h2>
-        <p class="section-subtitle">Stay updated with the latest happenings in Bennett Woods</p>
-        
-        <div class="announcements-container">
-            <div class="announcement-card">
-                <div class="announcement-date">February 5, 2026</div>
-                <h3>Spring Cleanup Day Scheduled</h3>
-                <p>Join your neighbors on March 15th for our annual spring cleanup! We'll be sprucing up common areas and shared spaces. Refreshments provided.</p>
-            </div>
-            <div class="announcement-card">
-                <div class="announcement-date">January 28, 2026</div>
-                <h3>Welcome New Neighbors!</h3>
-                <p>Please join us in welcoming the Johnson family to Bennett Woods! They've moved into the home on Maple Drive. Stop by and say hello!</p>
-            </div>
-            <div class="announcement-card">
-                <div class="announcement-date">January 15, 2026</div>
-                <h3>Neighborhood Watch Meeting</h3>
-                <p>Our quarterly safety meeting will be held on February 20th at 7 PM. Location TBD. All residents are encouraged to attend.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="services">
-    <div class="container">
-        <h2 class="section-title">Local Services</h2>
-        <p class="section-subtitle">Trusted service providers recommended by Bennett Woods residents</p>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <h4>🏡 Landscaping & Lawn Care</h4>
-                <p>Professional lawn maintenance and landscaping services serving our area</p>
-            </div>
-            <div class="service-card">
-                <h4>🔧 Home Repairs</h4>
-                <p>Licensed contractors for plumbing, electrical, and general home repairs</p>
-            </div>
-            <div class="service-card">
-                <h4>🎨 Painting Services</h4>
-                <p>Interior and exterior painting professionals with local references</p>
-            </div>
-            <div class="service-card">
-                <h4>🐕 Pet Services</h4>
-                <p>Dog walking, pet sitting, and grooming services in the neighborhood</p>
-            </div>
-            <div class="service-card">
-                <h4>🧹 Cleaning Services</h4>
-                <p>Residential cleaning and organizing services trusted by neighbors</p>
-            </div>
-            <div class="service-card">
-                <h4>📦 Moving & Delivery</h4>
-                <p>Local movers and delivery services recommended by residents</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Interested in learning more about Bennett Woods or moving to our community? We'd love to hear from you!</p>
-        
-        <div class="contact-wrapper">
-            <div class="contact-form">
-                <div id="successMessage" class="success-message">
-                    Thank you for your message! We'll get back to you soon.
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Why Bennett Woods?</h2>
+            <p class="section-subtitle">Nestled in the heart of Smyrna, just minutes from Atlanta, Bennett Woods offers the perfect blend of suburban tranquility and urban accessibility.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🌳</span>
+                    <h3>Beautiful Setting</h3>
+                    <p>Tree-lined streets, well-maintained homes, and green spaces create a peaceful atmosphere you'll love coming home to every day.</p>
                 </div>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="interest">I'm interested in... *</label>
-                        <select id="interest" name="interest" required>
-                            <option value="">Please select</option>
-                            <option value="buying">Buying a home in Bennett Woods</option>
-                            <option value="moving">Moving to the area</option>
-                            <option value="general">General information</option>
-                            <option value="services">Local services</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit">Send Message</button>
-                </form>
+                <div class="feature-card">
+                    <span class="feature-icon">👨‍👩‍👧‍👦</span>
+                    <h3>Strong Community</h3>
+                    <p>Friendly neighbors, regular events, and an active community spirit make Bennett Woods feel like home from day one.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📍</span>
+                    <h3>Prime Location</h3>
+                    <p>Easy access to I-285, close to shopping, dining, parks, and excellent schools. Everything you need is nearby.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🏠</span>
+                    <h3>Quality Homes</h3>
+                    <p>Well-built residences with character and charm, maintained by owners who take pride in their properties.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>Safe & Secure</h3>
+                    <p>A close-knit neighborhood where neighbors look out for each other, creating a safe environment for families.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⭐</span>
+                    <h3>Great Value</h3>
+                    <p>Exceptional quality of life at a price point that makes homeownership achievable for families and professionals.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer>
-    <div class="logo">Bennett Woods</div>
-    <p>Smyrna's Premier Neighborhood</p>
-    <p>Located in Smyrna, GA | Minutes from Atlanta</p>
-    <div class="footer-links">
-        <a href="#" title="Facebook">📘</a>
-        <a href="#" title="Instagram">📷</a>
-        <a href="#" title="Email">✉️</a>
-    </div>
-    <p style="margin-top: 2rem;">&copy; 2026 Bennett Woods Neighborhood. All rights reserved.</p>
-</footer>
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">Explore Our Neighborhood</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">📸 Street Views</div>
+                <div class="gallery-item">📸 Community Parks</div>
+                <div class="gallery-item">📸 Local Homes</div>
+                <div class="gallery-item">📸 Green Spaces</div>
+                <div class="gallery-item">📸 Neighborhood Events</div>
+                <div class="gallery-item">📸 Area Amenities</div>
+            </div>
+            <p class="gallery-note">Photo gallery coming soon! We're collecting beautiful shots of our neighborhood to share.</p>
+        </div>
+    </section>
 
-<script>
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    <section id="announcements">
+        <div class="container">
+            <h2 class="section-title">Community News</h2>
+            <p class="section-subtitle">Stay updated with the latest happenings in Bennett Woods</p>
+            
+            <div class="announcements-container">
+                <div class="announcement-card">
+                    <div class="announcement-date">February 5, 2026</div>
+                    <h3>Spring Cleanup Day Scheduled</h3>
+                    <p>Join your neighbors on March 15th for our annual spring cleanup! We'll be sprucing up common areas and shared spaces. Refreshments provided.</p>
+                </div>
+                <div class="announcement-card">
+                    <div class="announcement-date">January 28, 2026</div>
+                    <h3>Welcome New Neighbors!</h3>
+                    <p>Please join us in welcoming the Johnson family to Bennett Woods! They've moved into the home on Maple Drive. Stop by and say hello!</p>
+                </div>
+                <div class="announcement-card">
+                    <div class="announcement-date">January 15, 2026</div>
+                    <h3>Neighborhood Watch Meeting</h3>
+                    <p>Our quarterly safety meeting will be held on February 20th at 7 PM. Location TBD. All residents are encouraged to attend.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Local Services</h2>
+            <p class="section-subtitle">Trusted service providers recommended by Bennett Woods residents</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>🏡 Landscaping & Lawn Care</h4>
+                    <p>Professional lawn maintenance and landscaping services serving our area</p>
+                </div>
+                <div class="service-card">
+                    <h4>🔧 Home Repairs</h4>
+                    <p>Licensed contractors for plumbing, electrical, and general home repairs</p>
+                </div>
+                <div class="service-card">
+                    <h4>🎨 Painting Services</h4>
+                    <p>Interior and exterior painting professionals with local references</p>
+                </div>
+                <div class="service-card">
+                    <h4>🐕 Pet Services</h4>
+                    <p>Dog walking, pet sitting, and grooming services in the neighborhood</p>
+                </div>
+                <div class="service-card">
+                    <h4>🧹 Cleaning Services</h4>
+                    <p>Residential cleaning and organizing services trusted by neighbors</p>
+                </div>
+                <div class="service-card">
+                    <h4>📦 Moving & Delivery</h4>
+                    <p>Local movers and delivery services recommended by residents</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Interested in learning more about Bennett Woods or moving to our community? We'd love to hear from you!</p>
+            
+            <div class="contact-wrapper">
+                <div class="contact-form">
+                    <div id="successMessage" class="success-message">
+                        Thank you for your message! We'll get back to you soon.
+                    </div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">I'm interested in... *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Please select</option>
+                                <option value="buying">Buying a home in Bennett Woods</option>
+                                <option value="moving">Moving to the area</option>
+                                <option value="general">General information</option>
+                                <option value="services">Local services</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">Bennett Woods</div>
+        <p>Smyrna's Premier Neighborhood</p>
+        <p>Located in Smyrna, GA | Minutes from Atlanta</p>
+        <div class="footer-links">
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="Email">✉️</a>
+        </div>
+        <p style="margin-top: 2rem;">&copy; 2026 Bennett Woods Neighborhood. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+            
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            
+            this.reset();
+            
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
         });
-    });
 
-    // Form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const successMessage = document.getElementById('successMessage');
-        successMessage.style.display = 'block';
-        
-        this.reset();
-        
-        successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        
-        setTimeout(() => {
-            successMessage.style.display = 'none';
-        }, 5000);
-    });
+        // Scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-    // Scroll reveal animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .gallery-item, .announcement-card, .service-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
-    }, observerOptions);
-
-    // Observe elements for animation
-    document.querySelectorAll('.feature-card, .gallery-item, .announcement-card, .service-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-</script>
-```
-
+    </script>
 </body>
 </html>
