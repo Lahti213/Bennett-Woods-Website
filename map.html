@@ -172,7 +172,7 @@
             </div>
             <div class="legend-item">
                 <span class="legend-icon">🚒</span>
-                <span><strong>Smyrna Fire Dept</strong> - ~4 min response</span>
+                <span><strong>Fire Station #2</strong> - ~4 min response</span>
             </div>
             <div class="legend-item">
                 <span class="legend-icon">👮</span>
@@ -184,11 +184,11 @@
             </div>
             <div class="legend-item">
                 <span class="legend-icon">🚴</span>
-                <span><strong>Silver Comet Trail</strong> - 61-mile trail</span>
+                <span><strong>Silver Comet Trail</strong> - Concord Rd Trailhead</span>
             </div>
             <div class="legend-item">
                 <span class="legend-icon">🛒</span>
-                <span><strong>Shopping</strong> - Grocery & retail</span>
+                <span><strong>Publix</strong> - Grocery & shopping</span>
             </div>
             <div class="legend-item">
                 <span class="legend-icon">🏙️</span>
@@ -203,18 +203,12 @@
         crossorigin=""></script>
 <script>
     window.addEventListener('load', function() {
-        // Using your exact coordinates to find the rectangle boundaries
-        // Top: 33.864111 (northernmost)
-        // Bottom: 33.852472 (southernmost)
-        // Left: -84.544667 (westernmost)
-        // Right: -84.536417 (easternmost)
-        
-        // Calculate center point
+        // Bennett Woods boundary - using exact coordinates
         const centerLat = (33.864111 + 33.852472) / 2;  // 33.858292
         const centerLng = (-84.544667 + -84.536417) / 2;  // -84.540542
         
         // Initialize the map
-        const map = L.map('map').setView([centerLat, centerLng], 16);
+        const map = L.map('map').setView([centerLat, centerLng], 15);
 
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -233,13 +227,12 @@
             });
         }
 
-        // Bennett Woods Neighborhood Boundary - PERFECT RECTANGLE
-        // Using the extremes from your coordinates
+        // Bennett Woods Neighborhood Boundary - Perfect Rectangle
         const bennettWoodsBoundary = L.polygon([
-            [33.864111, -84.544667],   // NW corner (Top-most, Left-most)
-            [33.864111, -84.536417],   // NE corner (Top-most, Right-most)
-            [33.852472, -84.536417],   // SE corner (Bottom-most, Right-most)
-            [33.852472, -84.544667]    // SW corner (Bottom-most, Left-most)
+            [33.864111, -84.544667],   // NW corner
+            [33.864111, -84.536417],   // NE corner
+            [33.852472, -84.536417],   // SE corner
+            [33.852472, -84.544667]    // SW corner
         ], {
             color: '#7d9d8c',
             fillColor: '#d4896b',
@@ -250,7 +243,7 @@
 
         bennettWoodsBoundary.bindPopup('<h3>🏡 Bennett Woods Neighborhood</h3><p><strong>300+ homes</strong> built in the 1960s-70s</p><p>Traditional brick ranches on tree-lined streets</p><p>Bounded by Concord Rd, Coulter Dr, Lynhurst Rd & Mahlon Ave</p>');
 
-        // Add markers for key locations
+        // Add markers with USER-PROVIDED LOCATIONS
         const locations = [
             {
                 coords: [centerLat, centerLng],
@@ -258,37 +251,37 @@
                 popup: '<h3>🏡 Bennett Woods</h3><p><strong>Your Neighborhood</strong></p><p>300+ family homes in a welcoming community</p><p>Walk-able streets, friendly neighbors, golf cart culture!</p>'
             },
             {
-                coords: [33.8582, -84.5155],
+                coords: [33.8513, -84.5187],  // King Springs Elementary from Google Maps link
                 icon: "🏫",
-                popup: '<h3>🏫 King Springs Elementary School</h3><p><strong>A Grade from Niche</strong></p><p><strong>8/10 GreatSchools Rating</strong></p><p>#86 in Georgia | 13:1 student-teacher ratio</p><p>Just minutes from Bennett Woods!</p>'
+                popup: '<h3>🏫 King Springs Elementary School</h3><p><strong>1041 Reed Rd SE</strong></p><p><strong>A Grade from Niche | 8/10 GreatSchools</strong></p><p>#86 in Georgia | 13:1 student-teacher ratio</p><p>Just minutes from Bennett Woods!</p>'
             },
             {
-                coords: [33.8595, -84.5145],
+                coords: [33.8668, -84.5403],  // Fire Station from Google Maps link
                 icon: "🚒",
-                popup: '<h3>🚒 Smyrna Fire Department</h3><p><strong>~4 Minute Response Time</strong></p><p>24/7 emergency services</p><p>Highly trained firefighters & paramedics</p>'
+                popup: '<h3>🚒 Smyrna Fire Station #2</h3><p><strong>1275 Whitfield St (Concord Rd)</strong></p><p><strong>~4 Minute Response Time</strong></p><p>Right next to Bennett Woods!</p><p>24/7 emergency services</p>'
             },
             {
-                coords: [33.8805, -84.5145],
+                coords: [33.8895, -84.5166],  // Smyrna Police
                 icon: "👮",
-                popup: '<h3>👮 Smyrna Police Department</h3><p><strong>Community Policing</strong></p><p>Regular neighborhood patrols</p><p>Non-emergency: (770) 434-4381</p>'
+                popup: '<h3>👮 Smyrna Police Department</h3><p><strong>2646 Atlanta Rd</strong></p><p><strong>Community Policing</strong></p><p>Regular neighborhood patrols</p><p>Non-emergency: (770) 434-4381</p>'
             },
             {
-                coords: [33.8545, -84.5330],
+                coords: [33.8502, -84.5345],  // North Cooper Lake Park from Google Maps link
                 icon: "🌳",
-                popup: '<h3>🌳 North Cooper Lake Park</h3><p><strong>Right next to the neighborhood!</strong></p><p>Walking trails, open spaces</p><p>Smyrna Community Garden</p><p>Perfect for families & dog walkers</p>'
+                popup: '<h3>🌳 North Cooper Lake Park</h3><p><strong>4770 S Cooper Lake Rd SE</strong></p><p>Walking trails, open spaces</p><p>Smyrna Community Garden</p><p>Perfect for families & dog walkers!</p>'
             },
             {
-                coords: [33.8630, -84.5365],
+                coords: [33.8619, -84.5445],  // Silver Comet Concord Trailhead from Google Maps link
                 icon: "🚴",
-                popup: '<h3>🚴 Silver Comet Trail</h3><p><strong>61.5-mile paved trail</strong></p><p>Perfect for biking, running, walking</p><p>Easy access from Bennett Woods</p><p>Beautiful scenic route!</p>'
+                popup: '<h3>🚴 Silver Comet Trail</h3><p><strong>Concord Covered Bridge Trailhead</strong></p><p>61.5-mile paved trail</p><p>Restrooms, water, picnic tables</p><p>Easy access from Bennett Woods!</p>'
             },
             {
-                coords: [33.8650, -84.5100],
+                coords: [33.8638, -84.5215],  // Publix from Google Maps link
                 icon: "🛒",
-                popup: '<h3>🛒 Shopping & Dining</h3><p><strong>Everything you need nearby</strong></p><p>Grocery stores, restaurants</p><p>Retail shopping</p><p>Just minutes away!</p>'
+                popup: '<h3>🛒 Publix Super Market</h3><p><strong>1355 Concord Rd SE</strong></p><p>Full-service grocery store</p><p>Pharmacy, bakery, deli</p><p>Just minutes from Bennett Woods!</p>'
             },
             {
-                coords: [33.8838, -84.5145],
+                coords: [33.8838, -84.5145],  // Market Village / Downtown
                 icon: "🏙️",
                 popup: '<h3>🏙️ Downtown Smyrna</h3><p><strong>Market Village</strong></p><p>Restaurants, shops, events</p><p><strong>Coming Soon:</strong> Downtown redevelopment</p><p>350 homes, Jonquil Mile trail, and more!</p>'
             }
