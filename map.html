@@ -156,7 +156,7 @@
 
     <div class="info-box">
         <h4>📍 About Bennett Woods</h4>
-        <p>Bennett Woods is a neighborhood of over 300 homes located between Concord Road and North Cooper Lake Road in Smyrna, Georgia. Easy access to North Cooper Lake Park, Silver Comet Trail, King Springs Elementary School, and just 15 minutes to downtown Atlanta!</p>
+        <p>Bennett Woods is a neighborhood of over 300 homes located south of Concord Road and west of North Cooper Lake Road in Smyrna, Georgia. Easy access to North Cooper Lake Park, Silver Comet Trail, King Springs Elementary School, and just 15 minutes to downtown Atlanta!</p>
     </div>
 
     <div class="legend">
@@ -204,11 +204,11 @@
 <script>
     // Wait for page to fully load
     window.addEventListener('load', function() {
-        // Bennett Woods approximate center coordinates
-        const bennettWoodsCenter = [33.8625, -84.5210];
+        // Bennett Woods center - SOUTH of Concord Rd, WEST of N Cooper Lake Rd
+        const bennettWoodsCenter = [33.8570, -84.5240];
         
         // Initialize the map
-        const map = L.map('map').setView(bennettWoodsCenter, 14);
+        const map = L.map('map').setView(bennettWoodsCenter, 15);
 
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -227,12 +227,12 @@
             });
         }
 
-        // Bennett Woods Neighborhood Boundary
+        // Bennett Woods Neighborhood Boundary - SOUTH of Concord, WEST of N Cooper Lake
         const bennettWoodsBoundary = L.polygon([
-            [33.8680, -84.5280],
-            [33.8680, -84.5140],
-            [33.8570, -84.5140],
-            [33.8570, -84.5280]
+            [33.8615, -84.5300],  // NW corner (south of Concord, west side)
+            [33.8615, -84.5180],  // NE corner (south of Concord, near N Cooper Lake)
+            [33.8525, -84.5180],  // SE corner
+            [33.8525, -84.5300]   // SW corner
         ], {
             color: '#7d9d8c',
             fillColor: '#d4896b',
@@ -241,17 +241,17 @@
             dashArray: '10, 10'
         }).addTo(map);
 
-        bennettWoodsBoundary.bindPopup('<h3>🏡 Bennett Woods Neighborhood</h3><p><strong>300+ homes</strong> built in the 1960s-70s</p><p>Traditional brick ranches on tree-lined streets</p><p>Between Concord Rd & N Cooper Lake Rd</p>');
+        bennettWoodsBoundary.bindPopup('<h3>🏡 Bennett Woods Neighborhood</h3><p><strong>300+ homes</strong> built in the 1960s-70s</p><p>Traditional brick ranches on tree-lined streets</p><p>South of Concord Rd, West of N Cooper Lake Rd</p>');
 
         // Add markers for key locations
         const locations = [
             {
-                coords: [33.8625, -84.5210],
+                coords: [33.8570, -84.5240],
                 icon: "🏡",
                 popup: '<h3>🏡 Bennett Woods</h3><p><strong>Your Neighborhood</strong></p><p>300+ family homes in a welcoming community</p><p>Walk-able streets, friendly neighbors, golf cart culture!</p>'
             },
             {
-                coords: [33.8590, -84.5165],
+                coords: [33.8582, -84.5155],
                 icon: "🏫",
                 popup: '<h3>🏫 King Springs Elementary School</h3><p><strong>A Grade from Niche</strong></p><p><strong>8/10 GreatSchools Rating</strong></p><p>#86 in Georgia | 13:1 student-teacher ratio</p><p>Just minutes from Bennett Woods!</p>'
             },
@@ -266,12 +266,12 @@
                 popup: '<h3>👮 Smyrna Police Department</h3><p><strong>Community Policing</strong></p><p>Regular neighborhood patrols</p><p>Non-emergency: (770) 434-4381</p>'
             },
             {
-                coords: [33.8560, -84.5265],
+                coords: [33.8545, -84.5330],
                 icon: "🌳",
-                popup: '<h3>🌳 North Cooper Lake Park</h3><p><strong>Right in the neighborhood!</strong></p><p>Walking trails, open spaces</p><p>Smyrna Community Garden</p><p>Perfect for families & dog walkers</p>'
+                popup: '<h3>🌳 North Cooper Lake Park</h3><p><strong>Right next to the neighborhood!</strong></p><p>Walking trails, open spaces</p><p>Smyrna Community Garden</p><p>Perfect for families & dog walkers</p>'
             },
             {
-                coords: [33.8645, -84.5305],
+                coords: [33.8630, -84.5365],
                 icon: "🚴",
                 popup: '<h3>🚴 Silver Comet Trail</h3><p><strong>61.5-mile paved trail</strong></p><p>Perfect for biking, running, walking</p><p>Easy access from Bennett Woods</p><p>Beautiful scenic route!</p>'
             },
