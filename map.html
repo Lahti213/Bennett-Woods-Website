@@ -156,7 +156,7 @@
 
     <div class="info-box">
         <h4>📍 About Bennett Woods</h4>
-        <p>Bennett Woods is a neighborhood of over 300 homes located south of Concord Road and west of North Cooper Lake Road in Smyrna, Georgia. Easy access to North Cooper Lake Park, Silver Comet Trail, King Springs Elementary School, and just 15 minutes to downtown Atlanta!</p>
+        <p>Bennett Woods is a neighborhood of over 300 homes bounded by Concord Road (north), Coulter Drive (east), Lynhurst Road (south), and Mahlon Avenue (west) in Smyrna, Georgia. Easy access to North Cooper Lake Park, Silver Comet Trail, King Springs Elementary School, and just 15 minutes to downtown Atlanta!</p>
     </div>
 
     <div class="legend">
@@ -202,13 +202,12 @@
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>
 <script>
-    // Wait for page to fully load
     window.addEventListener('load', function() {
-        // Bennett Woods center - SOUTH of Concord Rd, WEST of N Cooper Lake Rd
-        const bennettWoodsCenter = [33.8570, -84.5240];
+        // Bennett Woods center based on the actual boundary from the map image
+        const bennettWoodsCenter = [33.8565, -84.5235];
         
         // Initialize the map
-        const map = L.map('map').setView(bennettWoodsCenter, 15);
+        const map = L.map('map').setView(bennettWoodsCenter, 16);
 
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -227,12 +226,13 @@
             });
         }
 
-        // Bennett Woods Neighborhood Boundary - SOUTH of Concord, WEST of N Cooper Lake
+        // Bennett Woods Neighborhood Boundary - Based on actual streets from image
+        // North: Concord Road, East: Coulter Drive, South: Lynhurst Road, West: Mahlon Avenue
         const bennettWoodsBoundary = L.polygon([
-            [33.8615, -84.5300],  // NW corner (south of Concord, west side)
-            [33.8615, -84.5180],  // NE corner (south of Concord, near N Cooper Lake)
-            [33.8525, -84.5180],  // SE corner
-            [33.8525, -84.5300]   // SW corner
+            [33.8598, -84.5280],  // NW corner (Concord & Mahlon)
+            [33.8598, -84.5190],  // NE corner (Concord & Coulter)
+            [33.8532, -84.5190],  // SE corner (Lynhurst & Coulter)
+            [33.8532, -84.5280]   // SW corner (Lynhurst & Mahlon)
         ], {
             color: '#7d9d8c',
             fillColor: '#d4896b',
@@ -241,12 +241,12 @@
             dashArray: '10, 10'
         }).addTo(map);
 
-        bennettWoodsBoundary.bindPopup('<h3>🏡 Bennett Woods Neighborhood</h3><p><strong>300+ homes</strong> built in the 1960s-70s</p><p>Traditional brick ranches on tree-lined streets</p><p>South of Concord Rd, West of N Cooper Lake Rd</p>');
+        bennettWoodsBoundary.bindPopup('<h3>🏡 Bennett Woods Neighborhood</h3><p><strong>300+ homes</strong> built in the 1960s-70s</p><p>Traditional brick ranches on tree-lined streets</p><p>Bounded by Concord Rd, Coulter Dr, Lynhurst Rd & Mahlon Ave</p>');
 
         // Add markers for key locations
         const locations = [
             {
-                coords: [33.8570, -84.5240],
+                coords: [33.8565, -84.5235],
                 icon: "🏡",
                 popup: '<h3>🏡 Bennett Woods</h3><p><strong>Your Neighborhood</strong></p><p>300+ family homes in a welcoming community</p><p>Walk-able streets, friendly neighbors, golf cart culture!</p>'
             },
