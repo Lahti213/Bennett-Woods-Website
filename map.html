@@ -203,15 +203,15 @@
         crossorigin=""></script>
 <script>
     window.addEventListener('load', function() {
-        // Convert DMS to decimal degrees
-        // Top: 33°51'50.8"N 84°32'36.9"W = 33.864111, -84.543583
-        // Bottom: 33°51'08.9"N 84°32'37.0"W = 33.852472, -84.543611
-        // Left: 33°51'21.5"N 84°32'40.8"W = 33.855972, -84.544667
-        // Right: 33°51'35.9"N 84°32'11.1"W = 33.859972, -84.536417
+        // Using your exact coordinates to find the rectangle boundaries
+        // Top: 33.864111 (northernmost)
+        // Bottom: 33.852472 (southernmost)
+        // Left: -84.544667 (westernmost)
+        // Right: -84.536417 (easternmost)
         
         // Calculate center point
         const centerLat = (33.864111 + 33.852472) / 2;  // 33.858292
-        const centerLng = (-84.543583 + -84.536417) / 2;  // -84.540000
+        const centerLng = (-84.544667 + -84.536417) / 2;  // -84.540542
         
         // Initialize the map
         const map = L.map('map').setView([centerLat, centerLng], 16);
@@ -233,12 +233,13 @@
             });
         }
 
-        // Bennett Woods Neighborhood Boundary - EXACT coordinates provided
+        // Bennett Woods Neighborhood Boundary - PERFECT RECTANGLE
+        // Using the extremes from your coordinates
         const bennettWoodsBoundary = L.polygon([
-            [33.864111, -84.543583],   // Top (Concord Rd)
-            [33.859972, -84.536417],   // Right (Coulter Dr)
-            [33.852472, -84.543611],   // Bottom (Lynhurst Rd)
-            [33.855972, -84.544667]    // Left (Mahlon Ave)
+            [33.864111, -84.544667],   // NW corner (Top-most, Left-most)
+            [33.864111, -84.536417],   // NE corner (Top-most, Right-most)
+            [33.852472, -84.536417],   // SE corner (Bottom-most, Right-most)
+            [33.852472, -84.544667]    // SW corner (Bottom-most, Left-most)
         ], {
             color: '#7d9d8c',
             fillColor: '#d4896b',
