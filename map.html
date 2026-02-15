@@ -203,11 +203,18 @@
         crossorigin=""></script>
 <script>
     window.addEventListener('load', function() {
-        // Bennett Woods center based on the actual boundary from the map image
-        const bennettWoodsCenter = [33.8565, -84.5235];
+        // Convert DMS to decimal degrees
+        // Top: 33°51'50.8"N 84°32'36.9"W = 33.864111, -84.543583
+        // Bottom: 33°51'08.9"N 84°32'37.0"W = 33.852472, -84.543611
+        // Left: 33°51'21.5"N 84°32'40.8"W = 33.855972, -84.544667
+        // Right: 33°51'35.9"N 84°32'11.1"W = 33.859972, -84.536417
+        
+        // Calculate center point
+        const centerLat = (33.864111 + 33.852472) / 2;  // 33.858292
+        const centerLng = (-84.543583 + -84.536417) / 2;  // -84.540000
         
         // Initialize the map
-        const map = L.map('map').setView(bennettWoodsCenter, 16);
+        const map = L.map('map').setView([centerLat, centerLng], 16);
 
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -226,13 +233,12 @@
             });
         }
 
-        // Bennett Woods Neighborhood Boundary - Based on actual streets from image
-        // North: Concord Road, East: Coulter Drive, South: Lynhurst Road, West: Mahlon Avenue
+        // Bennett Woods Neighborhood Boundary - EXACT coordinates provided
         const bennettWoodsBoundary = L.polygon([
-            [33.8598, -84.5280],  // NW corner (Concord & Mahlon)
-            [33.8598, -84.5190],  // NE corner (Concord & Coulter)
-            [33.8532, -84.5190],  // SE corner (Lynhurst & Coulter)
-            [33.8532, -84.5280]   // SW corner (Lynhurst & Mahlon)
+            [33.864111, -84.543583],   // Top (Concord Rd)
+            [33.859972, -84.536417],   // Right (Coulter Dr)
+            [33.852472, -84.543611],   // Bottom (Lynhurst Rd)
+            [33.855972, -84.544667]    // Left (Mahlon Ave)
         ], {
             color: '#7d9d8c',
             fillColor: '#d4896b',
@@ -246,7 +252,7 @@
         // Add markers for key locations
         const locations = [
             {
-                coords: [33.8565, -84.5235],
+                coords: [centerLat, centerLng],
                 icon: "🏡",
                 popup: '<h3>🏡 Bennett Woods</h3><p><strong>Your Neighborhood</strong></p><p>300+ family homes in a welcoming community</p><p>Walk-able streets, friendly neighbors, golf cart culture!</p>'
             },
