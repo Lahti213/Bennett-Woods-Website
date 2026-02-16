@@ -12,9 +12,102 @@
             box-sizing: border-box;
         }
 
+    :root {
+        --color-cream: #faf8f4;
+        --color-dark-green: #1a3a2e;
+        --color-sage: #7d9d8c;
+        --color-terracotta: #d4896b;
+        --color-charcoal: #2d2d2d;
+    }
+
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background: linear-gradient(135deg, #1a3a2e 0%, #2d5a47 100%);
+        padding: 0;
+        padding-top: 80px;
+    }
+
+    /* Navigation */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(250, 248, 244, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    nav .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1.5rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-dark-green);
+        letter-spacing: -0.02em;
+        text-decoration: none;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+    }
+
+    nav a {
+        color: var(--color-charcoal);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+    }
+
+    nav a:hover {
+        color: var(--color-dark-green);
+    }
+
+    /* Hamburger Menu */
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .menu-toggle span {
+        width: 30px;
+        height: 3px;
+        background: var(--color-dark-green);
+        border-radius: 3px;
+        transition: all 0.3s;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    .page-content {
         padding: 20px;
     }
 
@@ -117,6 +210,51 @@
             font-size: 1.8rem;
         }
 
+        .page-content {
+            padding: 15px;
+        }
+
+        nav .nav-container {
+            padding: 1rem 1.5rem;
+        }
+
+        .menu-toggle {
+            display: flex;
+        }
+
+        nav ul {
+            position: fixed;
+            top: 70px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background: var(--color-cream);
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2rem 0;
+            gap: 0;
+            transition: left 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul.active {
+            left: 0;
+        }
+
+        nav ul li {
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        nav a {
+            font-size: 1.1rem;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
         .container {
             padding: 15px;
         }
@@ -129,14 +267,37 @@
             grid-template-columns: 1fr;
         }
     }
-    </style>
+</style>
 
 </head>
 <body>
-    <div class="container">
-        <h1>🗺️ Bennett Woods Interactive Map</h1>
-        <p class="subtitle">Explore our neighborhood and nearby amenities - Click markers for details and directions!</p>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Bennett Woods</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="navMenu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#stats">Stats</a></li>
+                <li><a href="index.html#announcements">News</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
+```
+<div class="page-content">
+    <div class="container">
+    <h1>🗺️ Bennett Woods Interactive Map</h1>
+    <p class="subtitle">Explore our neighborhood and nearby amenities - Click markers for details and directions!</p>
+    
     <div class="map-wrapper">
         <iframe src="https://www.google.com/maps/d/embed?mid=1jZPPcxgoj9wQqMu9Zc8Mc01lxwLM-J8&ehbc=2E312F&noprof=1"></iframe>
     </div>
@@ -179,6 +340,25 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('#navMenu a').forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+</script>
 
 </body>
 </html>
