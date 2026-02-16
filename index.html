@@ -16,7 +16,6 @@
             box-sizing: border-box;
         }
 
-
     :root {
         --color-cream: #faf8f4;
         --color-dark-green: #1a3a2e;
@@ -66,7 +65,7 @@
 
     nav ul {
         display: flex;
-        gap: 3rem;
+        gap: 2.5rem;
         list-style: none;
     }
 
@@ -702,6 +701,7 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#stats">Stats</a></li>
                 <li><a href="#announcements">News</a></li>
+                <li><a href="map.html">Map</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -885,6 +885,21 @@
     </div>
 </section>
 
+<section id="map-section" style="background: var(--color-light-sage); padding: 8rem 3rem;">
+    <div class="container">
+        <h2 class="section-title">Explore the Area</h2>
+        <p class="section-subtitle">See Bennett Woods and all nearby amenities on our interactive map</p>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="map.html" class="cta-button" style="background: var(--color-dark-green); display: inline-flex; align-items: center; gap: 10px;">
+                🗺️ View Interactive Map
+            </a>
+        </div>
+        <p style="text-align: center; margin-top: 1.5rem; color: var(--color-sage); font-size: 0.95rem;">
+            Click markers for detailed information and directions to schools, parks, shopping, and more!
+        </p>
+    </div>
+</section>
+
 <section id="services">
     <div class="container">
         <h2 class="section-title">Local Services</h2>
@@ -1030,7 +1045,7 @@
         observer.observe(el);
     });
 </script>
-```
+
 
 </body>
 </html>
