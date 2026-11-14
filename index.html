@@ -1,1157 +1,432 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bennett Woods - Smyrna's Premier Neighborhood</title>
-    <meta name="description" content="Discover Bennett Woods, the best neighborhood in Smyrna, Georgia. A welcoming community near Atlanta with beautiful homes and friendly neighbors.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bennett Woods | A Neighborhood of 300+ Homes in Smyrna, GA</title>
+<meta name="description" content="Bennett Woods is a walkable, tree-lined neighborhood of 300+ homes between Concord Road and North Cooper Lake Road in Smyrna, Georgia, zoned for King Springs Elementary and 15 minutes from downtown Atlanta.">
+<link rel="canonical" href="https://bennettwoodssmyrna.com/">
+<meta name="theme-color" content="#1a3a2e">
 
-<!-- Open Graph / Facebook -->
+<!-- Open Graph / social previews -->
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Bennett Woods">
 <meta property="og:url" content="https://bennettwoodssmyrna.com/">
-<meta property="og:title" content="Bennett Woods - Smyrna's Premier Neighborhood">
-<meta property="og:description" content="Over 300 homes between Concord Road and North Cooper Lake Road. Top-rated schools, parks, trails, and just 15 minutes from downtown Atlanta!">
+<meta property="og:title" content="Bennett Woods | Smyrna, Georgia">
+<meta property="og:description" content="Over 300 homes between Concord Road and North Cooper Lake Road. Top-rated schools, parks, trails, and just 15 minutes from downtown Atlanta.">
 <meta property="og:image" content="https://bennettwoodssmyrna.com/og-image.jpg">
-<meta property="og:image:width" content="1200">
+<meta property="og:image:width" content="1555">
 <meta property="og:image:height" content="630">
-
-<!-- Twitter -->
+<meta property="og:image:alt" content="Bennett Woods: Smyrna's Premier Neighborhood">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://bennettwoodssmyrna.com/">
-<meta name="twitter:title" content="Bennett Woods - Smyrna's Premier Neighborhood">
-<meta name="twitter:description" content="Over 300 homes between Concord Road and North Cooper Lake Road. Top-rated schools, parks, trails, and just 15 minutes from downtown Atlanta!">
+<meta name="twitter:title" content="Bennett Woods | Smyrna, Georgia">
+<meta name="twitter:description" content="Over 300 homes between Concord Road and North Cooper Lake Road. Top-rated schools, parks, trails, and just 15 minutes from downtown Atlanta.">
 <meta name="twitter:image" content="https://bennettwoodssmyrna.com/og-image.jpg">
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    :root {
-        --color-cream: #faf8f4;
-        --color-dark-green: #1a3a2e;
-        --color-sage: #7d9d8c;
-        --color-terracotta: #d4896b;
-        --color-charcoal: #2d2d2d;
-        --color-white: #ffffff;
-        --color-light-sage: #e8f0ed;
-    }
-
-    body {
-        font-family: 'DM Sans', sans-serif;
-        background: var(--color-cream);
-        color: var(--color-charcoal);
-        line-height: 1.6;
-        overflow-x: hidden;
-    }
-
-    /* Navigation */
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        background: rgba(250, 248, 244, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    nav .container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 1.5rem 3rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--color-dark-green);
-        letter-spacing: -0.02em;
-    }
-
-    nav ul {
-        display: flex;
-        gap: 2.5rem;
-        list-style: none;
-    }
-
-    nav a {
-        color: var(--color-charcoal);
-        text-decoration: none;
-        font-size: 0.95rem;
-        font-weight: 500;
-        transition: color 0.3s;
-        position: relative;
-    }
-
-    nav a::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--color-terracotta);
-        transition: width 0.3s;
-    }
-
-    nav a:hover {
-        color: var(--color-dark-green);
-    }
-
-    nav a:hover::after {
-        width: 100%;
-    }
-
-    /* Hamburger Menu */
-    .menu-toggle {
-        display: none;
-        flex-direction: column;
-        gap: 6px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 5px;
-    }
-
-    .menu-toggle span {
-        width: 30px;
-        height: 3px;
-        background: var(--color-dark-green);
-        border-radius: 3px;
-        transition: all 0.3s;
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(8px, -8px);
-    }
-
-    /* Hero Section */
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-        background: linear-gradient(135deg, var(--color-dark-green) 0%, #2d5a47 100%);
-        padding-top: 80px;
-    }
-
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: 
-            radial-gradient(circle at 20% 50%, rgba(212, 137, 107, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(125, 157, 140, 0.1) 0%, transparent 50%);
-        animation: pulse 15s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-        0%, 100% { opacity: 0.5; }
-        50% { opacity: 1; }
-    }
-
-    .hero-content {
-        max-width: 1400px;
-        padding: 0 3rem;
-        text-align: center;
-        position: relative;
-        z-index: 10;
-        animation: fadeInUp 1s ease-out;
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .hero h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(3rem, 8vw, 6.5rem);
-        font-weight: 900;
-        color: var(--color-white);
-        line-height: 1.1;
-        margin-bottom: 2rem;
-        letter-spacing: -0.03em;
-    }
-
-    .hero-subtitle {
-        font-size: clamp(1.1rem, 2vw, 1.5rem);
-        color: rgba(255, 255, 255, 0.9);
-        max-width: 700px;
-        margin: 0 auto 3rem;
-        font-weight: 400;
-        line-height: 1.6;
-    }
-
-    .cta-button {
-        display: inline-block;
-        padding: 1.2rem 3rem;
-        background: var(--color-terracotta);
-        color: var(--color-white);
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 1rem;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 10px 30px rgba(212, 137, 107, 0.3);
-    }
-
-    .cta-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 15px 40px rgba(212, 137, 107, 0.4);
-        background: #c2745a;
-    }
-
-    .scroll-indicator {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-        0%, 100% { transform: translateX(-50%) translateY(0); }
-        50% { transform: translateX(-50%) translateY(-10px); }
-    }
-
-    .scroll-indicator span {
-        display: block;
-        width: 24px;
-        height: 40px;
-        border: 2px solid rgba(255, 255, 255, 0.5);
-        border-radius: 20px;
-        position: relative;
-    }
-
-    .scroll-indicator span::before {
-        content: '';
-        position: absolute;
-        top: 8px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 4px;
-        height: 8px;
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 2px;
-        animation: scroll 1.5s infinite;
-    }
-
-    @keyframes scroll {
-        0% { opacity: 1; top: 8px; }
-        100% { opacity: 0; top: 20px; }
-    }
-
-    /* Section Styles */
-    section {
-        padding: 8rem 3rem;
-        position: relative;
-    }
-
-    .container {
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .section-title {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        font-weight: 700;
-        color: var(--color-dark-green);
-        margin-bottom: 1rem;
-        letter-spacing: -0.02em;
-    }
-
-    .section-subtitle {
-        font-size: 1.2rem;
-        color: var(--color-sage);
-        max-width: 600px;
-        margin-bottom: 4rem;
-        line-height: 1.7;
-    }
-
-    /* About Section */
-    #about {
-        background: var(--color-white);
-    }
-
-    .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 3rem;
-        margin-top: 5rem;
-    }
-
-    .feature-card {
-        padding: 3rem 2.5rem;
-        background: var(--color-cream);
-        border-radius: 20px;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid transparent;
-    }
-
-    .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-        border-color: var(--color-sage);
-    }
-
-    .feature-icon {
-        font-size: 3.5rem;
-        margin-bottom: 1.5rem;
-        display: block;
-        opacity: 0.9;
-    }
-
-    .feature-card h3 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.6rem;
-        color: var(--color-dark-green);
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
-
-    .feature-card p {
-        color: var(--color-charcoal);
-        line-height: 1.8;
-        font-size: 1rem;
-    }
-
-    /* Gallery Section */
-    #gallery {
-        background: var(--color-light-sage);
-    }
-
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2rem;
-        margin-top: 4rem;
-    }
-
-    .gallery-item {
-        aspect-ratio: 4/3;
-        border-radius: 16px;
-        background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-dark-green) 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--color-white);
-        font-size: 1.2rem;
-        font-weight: 600;
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.4s;
-    }
-
-    .gallery-item::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
-        opacity: 0;
-        transition: opacity 0.4s;
-    }
-
-    .gallery-item:hover {
-        transform: scale(1.03);
-    }
-
-    .gallery-item:hover::before {
-        opacity: 1;
-    }
-
-    .gallery-note {
-        text-align: center;
-        margin-top: 3rem;
-        font-style: italic;
-        color: var(--color-sage);
-        font-size: 1.05rem;
-    }
-
-    /* Stats Section */
-    #stats {
-        background: var(--color-white);
-    }
-
-    .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2.5rem;
-        margin-top: 4rem;
-        margin-bottom: 5rem;
-    }
-
-    .stat-card {
-        text-align: center;
-        padding: 2.5rem 1.5rem;
-        background: var(--color-light-sage);
-        border-radius: 16px;
-        transition: all 0.3s;
-    }
-
-    .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-    }
-
-    .stat-number {
-        font-family: 'Playfair Display', serif;
-        font-size: 3rem;
-        font-weight: 700;
-        color: var(--color-dark-green);
-        line-height: 1;
-        margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-        font-size: 0.95rem;
-        color: var(--color-sage);
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-
-    .safety-highlight {
-        background: linear-gradient(135deg, var(--color-dark-green) 0%, #2d5a47 100%);
-        padding: 4rem 3rem;
-        border-radius: 20px;
-        color: var(--color-white);
-        margin-top: 3rem;
-    }
-
-    .safety-highlight h3 {
-        font-family: 'Playfair Display', serif;
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        color: var(--color-white);
-    }
-
-    .safety-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2.5rem;
-        margin-top: 2rem;
-    }
-
-    .safety-item {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 2rem;
-        border-radius: 12px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .safety-item h4 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-        color: var(--color-white);
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
-
-    .safety-icon {
-        font-size: 2rem;
-    }
-
-    .safety-item p {
-        color: rgba(255, 255, 255, 0.9);
-        line-height: 1.8;
-    }
-
-    /* Announcements */
-    #announcements {
-        background: var(--color-cream);
-    }
-
-    .announcements-container {
-        max-width: 900px;
-        margin: 3rem auto 0;
-    }
-
-    .announcement-card {
-        background: var(--color-cream);
-        padding: 2.5rem 3rem;
-        border-radius: 16px;
-        margin-bottom: 2rem;
-        border-left: 4px solid var(--color-terracotta);
-        transition: all 0.3s;
-    }
-
-    .announcement-card:hover {
-        transform: translateX(8px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    }
-
-    .announcement-date {
-        font-size: 0.9rem;
-        color: var(--color-sage);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 0.75rem;
-        font-weight: 600;
-    }
-
-    .announcement-card h3 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.6rem;
-        color: var(--color-dark-green);
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
-
-    .announcement-card p {
-        color: var(--color-charcoal);
-        line-height: 1.8;
-    }
-
-    /* Services */
-    #services {
-        background: var(--color-dark-green);
-        color: var(--color-white);
-    }
-
-    #services .section-title {
-        color: var(--color-white);
-    }
-
-    #services .section-subtitle {
-        color: rgba(255, 255, 255, 0.8);
-    }
-
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 4rem;
-    }
-
-    .service-card {
-        background: rgba(255, 255, 255, 0.08);
-        padding: 2.5rem 2rem;
-        border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.4s;
-        backdrop-filter: blur(10px);
-    }
-
-    .service-card:hover {
-        background: rgba(255, 255, 255, 0.12);
-        transform: translateY(-5px);
-        border-color: var(--color-terracotta);
-    }
-
-    .service-card h4 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-        color: var(--color-white);
-        font-weight: 600;
-    }
-
-    .service-card p {
-        color: rgba(255, 255, 255, 0.85);
-        line-height: 1.7;
-    }
-
-    /* Contact */
-    #contact {
-        background: var(--color-cream);
-    }
-
-    .contact-wrapper {
-        max-width: 700px;
-        margin: 3rem auto 0;
-    }
-
-    .contact-form {
-        background: var(--color-white);
-        padding: 3rem;
-        border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-    }
-
-    .form-group {
-        margin-bottom: 2rem;
-    }
-
-    label {
-        display: block;
-        font-weight: 600;
-        color: var(--color-dark-green);
-        margin-bottom: 0.75rem;
-        font-size: 0.95rem;
-    }
-
-    input, textarea, select {
-        width: 100%;
-        padding: 1rem 1.25rem;
-        border: 2px solid #e8e8e8;
-        border-radius: 12px;
-        font-family: 'DM Sans', sans-serif;
-        font-size: 1rem;
-        transition: all 0.3s;
-        background: var(--color-white);
-    }
-
-    input:focus, textarea:focus, select:focus {
-        outline: none;
-        border-color: var(--color-sage);
-        box-shadow: 0 0 0 4px rgba(125, 157, 140, 0.1);
-    }
-
-    textarea {
-        resize: vertical;
-        min-height: 140px;
-    }
-
-    button[type="submit"] {
-        width: 100%;
-        padding: 1.2rem;
-        background: var(--color-dark-green);
-        color: var(--color-white);
-        border: none;
-        border-radius: 12px;
-        font-size: 1.05rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
-        font-family: 'DM Sans', sans-serif;
-    }
-
-    button[type="submit"]:hover {
-        background: #14301f;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(26, 58, 46, 0.3);
-    }
-
-    .success-message {
-        background: #d4edda;
-        color: #155724;
-        padding: 1.25rem;
-        border-radius: 12px;
-        margin-bottom: 1.5rem;
-        display: none;
-        border: 1px solid #c3e6cb;
-    }
-
-    /* Footer */
-    footer {
-        background: var(--color-charcoal);
-        color: var(--color-white);
-        padding: 4rem 3rem 2rem;
-        text-align: center;
-    }
-
-    footer .logo {
-        color: var(--color-white);
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-    }
-
-    .footer-links {
-        margin: 2rem 0;
-        font-size: 1.5rem;
-    }
-
-    .footer-links a {
-        color: var(--color-white);
-        margin: 0 1rem;
-        text-decoration: none;
-        transition: transform 0.3s;
-        display: inline-block;
-    }
-
-    .footer-links a:hover {
-        transform: scale(1.2);
-    }
-
-    footer p {
-        color: rgba(255, 255, 255, 0.6);
-        margin: 0.5rem 0;
-        font-size: 0.95rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        nav .container {
-            padding: 1rem 1.5rem;
-        }
-
-        .menu-toggle {
-            display: flex;
-        }
-
-        nav ul {
-            position: fixed;
-            top: 70px;
-            left: -100%;
-            width: 100%;
-            height: calc(100vh - 70px);
-            background: var(--color-cream);
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 2rem 0;
-            gap: 0;
-            transition: left 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        nav ul.active {
-            left: 0;
-        }
-
-        nav ul li {
-            width: 100%;
-            text-align: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        nav a {
-            font-size: 1.1rem;
-            display: block;
-            padding: 0.5rem 0;
-        }
-
-        nav a::after {
-            display: none;
-        }
-
-        section {
-            padding: 5rem 1.5rem;
-        }
-
-        .features-grid,
-        .gallery-grid,
-        .services-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .contact-form {
-            padding: 2rem 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-        }
-    }
-</style>
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Place",
+  "name": "Bennett Woods",
+  "description": "A neighborhood of over 300 homes between Concord Road and North Cooper Lake Road in Smyrna, Georgia.",
+  "url": "https://bennettwoodssmyrna.com/",
+  "address": { "@type": "PostalAddress", "addressLocality": "Smyrna", "addressRegion": "GA", "addressCountry": "US" }
+}
+</script>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <div class="logo">Bennett Woods</div>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul id="navMenu">
-                <li><a href="#home">Home</a></li>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <symbol id="i-tree" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 6 10h3l-4 6h14l-4-6h3z"/><path d="M12 16v6"/></symbol>
+        <symbol id="i-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.5" cy="8.5" r="2.5"/><path d="M16 14.2c2.9-.3 5 1.9 5 4.8"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+        <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 21.5l8.8-8.8a5 5 0 0 0 0-7.1z"/></symbol>
+        <symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-6.8 0-4.6-4-7-4.5-11.2C11 6 9.5 9 9.5 11c-1-.6-1.8-1.8-2-3C5.8 9.8 5 12.4 5 15.2 5 19.2 8 22 12 22z"/></symbol>
+        <symbol id="i-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.4 2.2 3.2-.4.7 3.2 2.9 1.5-1.3 3 1.3 3-2.9 1.5-.7 3.2-3.2-.4L12 22l-2.4-2.2-3.2.4-.7-3.2-2.9-1.5 1.3-3-1.3-3 2.9-1.5.7-3.2 3.2.4z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 4-6 2v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+        <symbol id="i-logo" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#1a3a2e"/><path d="M16 6.5 10.5 14h3l-4.5 6.5h14L18.5 14h3z" fill="#f1c7b5"/><rect x="15" y="20.5" width="2" height="5" rx="1" fill="#f1c7b5"/></symbol>
+    </defs>
+</svg>
+
+<header class="site-nav">
+    <div class="container">
+        <a href="#top" class="brand" aria-label="Bennett Woods, back to top"><svg aria-hidden="true"><use href="#i-logo"/></svg>Bennett Woods</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="navMenu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav aria-label="Main">
+            <ul class="nav-links" id="navMenu">
                 <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#stats">Stats</a></li>
-                <li><a href="#announcements">News</a></li>
-                <li><a href="map.html">Map</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#schools">Schools</a></li>
+                <li><a href="#safety">Safety</a></li>
+                <li><a href="#map">Map</a></li>
+                <li><a href="#happenings">News &amp; Events</a></li>
+                <li><a href="welcome.html">New Neighbors</a></li>
+                <li><a href="#contact" class="nav-cta">Get in touch</a></li>
             </ul>
-        </div>
-    </nav>
-    
-<section id="home" class="hero">
-    <div class="hero-content">
-        <h1>Bennett Woods</h1>
-        <p class="hero-subtitle">Smyrna's premier neighborhood where community, comfort, and convenience come together</p>
-        <a href="#contact" class="cta-button">Get in Touch</a>
+        </nav>
     </div>
-    <div class="scroll-indicator">
-        <span></span>
+</header>
+
+<main id="main">
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="top">
+    <div class="container">
+        <div class="hero-inner">
+            <p class="eyebrow">Smyrna, Georgia</p>
+            <h1>Bennett Woods</h1>
+            <p class="hero-lead">Over 300 homes on tree-lined streets between Concord Road and North Cooper Lake Road, with friendly neighbors, great schools, and downtown Atlanta just 15 minutes away.</p>
+            <div class="hero-actions">
+                <a href="#map" class="btn btn-primary"><svg aria-hidden="true"><use href="#i-map"/></svg>Explore the map</a>
+                <a href="#about" class="btn btn-ghost">Why neighbors love it</a>
+            </div>
+        </div>
+    </div>
+    <svg class="treeline" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="#2d5a47" opacity=".55" d="M0 160 L0 120 L21 82 L42 120 L50 63 L67 120 L73 65 L91 120 L98 87 L120 120 L124 49 L146 120 L148 59 L168 120 L186 70 L210 120 L220 47 L238 120 L244 84 L262 120 L277 81 L304 120 L314 71 L340 120 L343 87 L361 120 L373 69 L399 120 L405 67 L429 120 L439 55 L466 120 L470 64 L495 120 L512 76 L539 120 L549 69 L567 120 L578 66 L597 120 L606 52 L632 120 L646 74 L674 120 L685 61 L710 120 L722 43 L750 120 L759 87 L784 120 L798 40 L823 120 L833 71 L854 120 L861 67 L878 120 L883 87 L902 120 L912 78 L931 120 L947 86 L975 120 L981 46 L1005 120 L1024 76 L1052 120 L1055 46 L1077 120 L1089 81 L1108 120 L1113 66 L1133 120 L1143 90 L1163 120 L1172 62 L1194 120 L1213 64 L1239 120 L1251 87 L1276 120 L1294 46 L1321 120 L1332 70 L1354 120 L1361 87 L1386 120 L1384 82 L1404 120 L1408 90 L1425 120 L1429 72 L1448 120 L1460 59 L1488 120 L1440 160 Z"/>
+        <path fill="#faf8f4" d="M0 160 L0 150 L24 109 L48 150 L53 87 L75 150 L95 103 L122 150 L121 110 L143 150 L159 118 L191 150 L197 101 L231 150 L232 124 L260 150 L278 86 L313 150 L320 108 L344 150 L356 101 L388 150 L399 115 L424 150 L448 87 L483 150 L501 92 L533 150 L536 109 L564 150 L560 112 L581 150 L596 82 L626 150 L641 81 L675 150 L689 115 L715 150 L718 116 L741 150 L763 87 L796 150 L806 89 L835 150 L840 84 L870 150 L888 103 L919 150 L927 110 L958 150 L980 107 L1014 150 L1026 92 L1060 150 L1054 118 L1076 150 L1101 118 L1133 150 L1154 95 L1189 150 L1193 119 L1222 150 L1231 96 L1266 150 L1279 105 L1313 150 L1333 116 L1365 150 L1365 114 L1390 150 L1400 106 L1424 150 L1438 109 L1472 150 L1440 160 Z"/>
+    </svg>
+</section>
+
+<!-- ============ Quick facts ============ -->
+<div class="facts">
+    <div class="container">
+        <div class="facts-grid">
+            <div class="fact"><strong>300+</strong><span>Homes</span></div>
+            <div class="fact"><strong>15 min</strong><span>To downtown Atlanta</span></div>
+            <div class="fact"><strong>5 min</strong><span>To I-285</span></div>
+            <div class="fact"><strong>A</strong><span>Niche grade, King Springs</span></div>
+            <div class="fact"><strong>3</strong><span>Native-planted entrances</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ About ============ -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Why Bennett Woods</p>
+            <h2>Suburban calm, minutes from the city</h2>
+            <p>Bennett Woods sits in the heart of Smyrna: quiet enough for evening walks under the trees, close enough that Atlanta, the Silver Comet Trail, and downtown Smyrna are a short drive away.</p>
+        </div>
+        <div class="card-grid">
+            <article class="card reveal">
+                <span class="icon"><svg aria-hidden="true"><use href="#i-tree"/></svg></span>
+                <h3>Beautiful setting</h3>
+                <p>Mature trees, well-kept yards, and green space create a peaceful place you'll look forward to coming home to.</p>
+            </article>
+            <article class="card reveal">
+                <span class="icon"><svg aria-hidden="true"><use href="#i-people"/></svg></span>
+                <h3>Strong community</h3>
+                <p>Block parties, Garden Club events, and neighbors who stop to chat make Bennett Woods feel like home from day one.</p>
+            </article>
+            <article class="card reveal">
+                <span class="icon"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
+                <h3>Prime location</h3>
+                <p>Quick access to I-285 plus nearby shopping, dining, parks, and trails. Everything you need is close.</p>
+            </article>
+            <article class="card reveal">
+                <span class="icon"><svg aria-hidden="true"><use href="#i-home"/></svg></span>
+                <h3>Homes with character</h3>
+                <p>Well-built houses with charm, cared for by owners who take real pride in their properties.</p>
+            </article>
+            <article class="card reveal">
+                <span class="icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>
+                <h3>Neighbors look out</h3>
+                <p>A close-knit street culture where people know each other, backed by Smyrna's own police and fire departments.</p>
+            </article>
+            <article class="card reveal">
+                <span class="icon"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>
+                <h3>Great for families</h3>
+                <p>Strong schools and homes priced within reach for first-time buyers, young professionals, and growing families.</p>
+            </article>
+        </div>
     </div>
 </section>
 
-<section id="about">
+<!-- ============ Life here ============ -->
+<section class="section section-mist" id="life">
     <div class="container">
-        <h2 class="section-title">Why Bennett Woods?</h2>
-        <p class="section-subtitle">Nestled in the heart of Smyrna, just minutes from Atlanta, Bennett Woods offers the perfect blend of suburban tranquility and urban accessibility.</p>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">🌳</span>
-                <h3>Beautiful Setting</h3>
-                <p>Tree-lined streets, well-maintained homes, and green spaces create a peaceful atmosphere you'll love coming home to every day.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">👨‍👩‍👧‍👦</span>
-                <h3>Strong Community</h3>
-                <p>Friendly neighbors, regular events, and an active community spirit make Bennett Woods feel like home from day one.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">📍</span>
-                <h3>Prime Location</h3>
-                <p>Easy access to I-285, close to shopping, dining, parks, and excellent schools. Everything you need is nearby.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🏠</span>
-                <h3>Quality Homes</h3>
-                <p>Well-built residences with character and charm, maintained by owners who take pride in their properties.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🛡️</span>
-                <h3>Safe & Secure</h3>
-                <p>A close-knit neighborhood where neighbors look out for each other, creating a safe environment for families.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">⭐</span>
-                <h3>Great Value</h3>
-                <p>Exceptional quality of life at a price point that makes homeownership achievable for families and professionals.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="gallery">
-    <div class="container">
-        <h2 class="section-title">Explore Our Neighborhood</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">📸 Street Views</div>
-            <div class="gallery-item">📸 Community Parks</div>
-            <div class="gallery-item">📸 Local Homes</div>
-            <div class="gallery-item">📸 Green Spaces</div>
-            <div class="gallery-item">📸 Neighborhood Events</div>
-            <div class="gallery-item">📸 Area Amenities</div>
-        </div>
-        <p class="gallery-note">Photo gallery coming soon! We're collecting beautiful shots of our neighborhood to share.</p>
-    </div>
-</section>
-
-<section id="stats">
-    <div class="container">
-        <h2 class="section-title">By The Numbers</h2>
-        <p class="section-subtitle">What makes Bennett Woods exceptional</p>
-        
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">15</div>
-                <div class="stat-label">Minutes to Downtown Atlanta</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">8/10</div>
-                <div class="stat-label">GreatSchools Rating</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">A</div>
-                <div class="stat-label">Niche Grade (King Springs)</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">~4</div>
-                <div class="stat-label">Minute Emergency Response</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">5</div>
-                <div class="stat-label">Minutes to I-285</div>
-            </div>
-        </div>
-
-        <div class="safety-highlight">
-            <h3>🚨 Your Safety is Our Priority</h3>
-            <p style="max-width: 800px; margin-bottom: 2rem; opacity: 0.95;">Bennett Woods is proud to be served by exceptional first responders who are dedicated to keeping our community safe. Our fire and police departments are among the best in Cobb County.</p>
-            
-            <div class="safety-grid">
-                <div class="safety-item">
-                    <h4><span class="safety-icon">🚒</span> Smyrna Fire Department</h4>
-                    <p>The Smyrna Fire Department provides exceptional emergency services to Bennett Woods with a station located just minutes from our neighborhood. Their highly trained firefighters and paramedics respond to fires, medical emergencies, and rescue situations 24/7. With rapid response times averaging around 4 minutes, you can rest assured help arrives quickly when you need it.</p>
+        <div class="split">
+            <div>
+                <div class="section-head" style="margin-bottom:2rem">
+                    <p class="eyebrow">Life here</p>
+                    <h2>A neighborhood made for living</h2>
                 </div>
-                <div class="safety-item">
-                    <h4><span class="safety-icon">👮</span> Smyrna Police Department</h4>
-                    <p>The Smyrna Police Department is dedicated to keeping Bennett Woods safe and secure. Officers provide regular patrols throughout our neighborhood and maintain a strong community policing presence. With active neighborhood watch programs and quick emergency response, the department has helped Bennett Woods maintain its reputation as one of Smyrna's safest communities.</p>
+                <div class="prose">
+                    <p>One of the best things about Bennett Woods is how <strong>walkable and friendly</strong> it is. Any time of day you'll see neighbors walking dogs, kids riding bikes, and families cruising by in golf carts. The golf cart culture here is real, and it adds to the relaxed feel of the place.</p>
+                    <p>Evening walks are a neighborhood tradition. Whether you're out with the dog, pushing a stroller, or just enjoying the shade, you'll run into friendly faces. It's the kind of place where kids play together and everyone looks out for each other.</p>
+                    <p>Many residents are first-time buyers and young professionals who found what they were looking for here: <strong>safe streets, great schools, friendly neighbors, and home prices</strong> that leave room to invest in the future.</p>
+                </div>
+                <aside class="panel reveal" style="margin-top:2.5rem">
+                    <p class="eyebrow" style="color:var(--clay-dark);margin-bottom:.5rem">Coming to Smyrna</p>
+                    <h3>Downtown is growing</h3>
+                    <p>The city adopted a downtown redevelopment plan with about 350 new homes, restaurants, shops, green space, and the <strong>Jonquil Mile</strong> walking and biking trail, all just minutes from Bennett Woods.</p>
+                </aside>
+            </div>
+            <div>
+                <aside class="panel reveal">
+                    <p class="eyebrow" style="color:var(--clay-dark);margin-bottom:.5rem">Get involved</p>
+                    <h3>Bennett Woods Garden Club</h3>
+                    <p>One of the neighborhood's most active groups. Thanks to the club and neighbors who pitched in, all three entrances were recently replanted with native plants. The club also keeps up the entrance signs and brings neighbors together year-round.</p>
+                    <ul class="tag-list">
+                        <li>Annual chili cook-off</li>
+                        <li>Christmas wreath workshop</li>
+                        <li>Floral arranging classes</li>
+                        <li>Native plantings at the entrances</li>
+                    </ul>
+                    <p>New members are always welcome, whether you love gardening or just want to meet the neighbors.</p>
+                    <div class="btn-row"><a href="#contact" class="btn btn-forest">Ask about joining <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+                </aside>
+                <aside class="panel reveal" style="margin-top:1.5rem">
+                    <p class="eyebrow" style="color:var(--clay-dark);margin-bottom:.5rem">Native plants &amp; pollinators</p>
+                    <h3>Go native at home</h3>
+                    <p>Our entrances now feature native plants, and Smyrna is a <strong>Bee City USA</strong> affiliate. <strong>Keep Smyrna Beautiful</strong> leads the city's pollinator work, including its "Pollinator Pocket" gardens, and shares plant ideas, events and volunteer opportunities.</p>
+                    <div class="btn-row"><a href="https://linktr.ee/keepsmyrnabeautiful" class="btn btn-outline" target="_blank" rel="noopener">Keep Smyrna Beautiful <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+                </aside>
+            </div>
+        </div>
+        <div class="callout reveal">
+            <p><svg aria-hidden="true" style="width:22px;height:22px;display:inline;vertical-align:-5px;margin-right:.4rem;color:var(--forest)"><use href="#i-camera"/></svg><strong>Photos wanted!</strong> We're building a neighborhood gallery. Got a great shot of the streets, the entrances, or an event?</p>
+            <a href="#contact" class="btn btn-outline">Share a photo</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============ Gallery (photos listed in content.js; hidden until there are some) ============ -->
+<section class="section" id="gallery" hidden>
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Gallery</p>
+            <h2>Around the neighborhood</h2>
+            <p>Photos shared by Bennett Woods neighbors. Tap any photo to see it larger.</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+</section>
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <figure><img src="" alt=""><figcaption></figcaption></figure>
+    <button type="button" class="lb-btn lb-close" data-close aria-label="Close">&times;</button>
+    <button type="button" class="lb-btn lb-prev" data-prev aria-label="Previous photo">&#8249;</button>
+    <button type="button" class="lb-btn lb-next" data-next aria-label="Next photo">&#8250;</button>
+</dialog>
+
+<!-- ============ Schools ============ -->
+<section class="section" id="schools">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Schools</p>
+            <h2>Zoned for a top-rated elementary</h2>
+        </div>
+        <article class="school reveal">
+            <div>
+                <h3>King Springs Elementary School</h3>
+                <p>Bennett Woods families are served by King Springs, ranked <strong>#86 among Georgia's public elementary schools</strong> by Niche, with a 13:1 student-teacher ratio. 67% of students score proficient or above in reading and 58% in math.</p>
+                <p>Parents praise the caring staff, dedicated principal, and an active PTA. After-school programs include chess, art, music, and science, and a gifted program serves 14% of students.</p>
+                <blockquote>"We feel a strong sense of community… our son has excelled and looks forward to going to school every day."</blockquote>
+                <div class="btn-row">
+                    <a class="btn btn-forest" href="https://www.cobbk12.org/kingsprings" target="_blank" rel="noopener">School website</a>
+                    <a class="btn btn-outline" href="https://www.greatschools.org/georgia/smyrna/497-King-Springs-Elementary-School/" target="_blank" rel="noopener">GreatSchools</a>
+                    <a class="btn btn-outline" href="https://www.niche.com/k12/king-springs-elementary-school-smyrna-ga/" target="_blank" rel="noopener">Niche</a>
+                </div>
+                <p class="fineprint">Ratings change over time. Always confirm school zoning with Cobb County School District before buying.</p>
+            </div>
+            <div class="ratings" aria-label="Ratings">
+                <div class="rating"><strong>A</strong><span>Niche grade</span></div>
+                <div class="rating"><strong>8/10</strong><span>GreatSchools</span></div>
+                <div class="rating"><strong>#86</strong><span>In Georgia</span></div>
+                <div class="rating"><strong>13:1</strong><span>Student-teacher</span></div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- ============ Safety ============ -->
+<section class="section section-dark" id="safety">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Safety</p>
+            <h2>Served by Smyrna's own first responders</h2>
+            <p>Bennett Woods is one of Smyrna's safest communities. It's inside the City of Smyrna, which runs its own police and fire departments, so help is close by.</p>
+        </div>
+        <div class="card-grid">
+            <article class="dark-card reveal">
+                <span class="icon"><svg aria-hidden="true"><use href="#i-flame"/></svg></span>
+                <h3>Smyrna Fire Department</h3>
+                <p>Fire Station 2 sits right on Concord Road, minutes from the neighborhood. Its firefighters and paramedics respond to fires, medical emergencies, and rescues around the clock, with response times averaging <strong>about 4 minutes</strong>.</p>
+            </article>
+            <article class="dark-card reveal">
+                <span class="icon"><svg aria-hidden="true"><use href="#i-badge"/></svg></span>
+                <h3>Smyrna Police Department</h3>
+                <p>Officers patrol the neighborhood and practice community policing. Keep porch lights on in the evening and report anything suspicious; neighbors working together keep Bennett Woods safe.</p>
+            </article>
+        </div>
+        <div class="numbers">
+            <a class="number urgent" href="tel:911"><small>Emergency</small><b>911</b></a>
+            <a class="number" href="tel:+17704346666"><small>Police non-emergency</small><b>(770) 434-6666</b></a>
+            <a class="number" href="tel:+17704346667"><small>Smyrna Fire Dept.</small><b>(770) 434-6667</b></a>
+            <a class="number" href="https://www.smyrnaga.gov/" target="_blank" rel="noopener"><small>City services &amp; requests</small><b>smyrnaga.gov</b></a>
+        </div>
+    </div>
+</section>
+
+<!-- ============ Map ============ -->
+<section class="section section-alt" id="map">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Explore</p>
+            <h2>The neighborhood and what's nearby</h2>
+            <p>Tap a marker for details and directions to schools, parks, shopping, and more.</p>
+        </div>
+        <div class="map-frame reveal">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1jZPPcxgoj9wQqMu9Zc8Mc01lxwLM-J8&amp;ehbc=2E312F&amp;noprof=1" title="Interactive map of Bennett Woods and nearby places" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <ul class="places">
+            <li><b>King Springs Elementary</b><span>A-rated neighborhood school</span></li>
+            <li><b>Fire Station 2</b><span>On Concord Road, ~4 min response</span></li>
+            <li><b>North Cooper Lake Park</b><span>Walking trails, gardens, open space</span></li>
+            <li><b>Silver Comet Trail</b><span>61.5-mile paved trail for biking &amp; walking</span></li>
+            <li><b>Publix</b><span>Full-service grocery minutes away</span></li>
+            <li><b>Downtown Smyrna</b><span>Market Village shops &amp; restaurants</span></li>
+        </ul>
+        <div class="btn-row" style="justify-content:center;margin-top:2rem">
+            <a href="map.html" class="btn btn-outline">Open the full-screen map <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+    </div>
+</section>
+
+<!-- ============ News & Events (edit them in content.js) ============ -->
+<section class="section" id="happenings" hidden>
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">News &amp; events</p>
+            <h2>What's happening</h2>
+        </div>
+        <div class="happenings-grid">
+            <div id="eventsBlock" hidden>
+                <h3 class="col-title">Upcoming events</h3>
+                <div class="news-list" id="eventsList"></div>
+            </div>
+            <div id="newsBlock" hidden>
+                <h3 class="col-title">Latest news</h3>
+                <div class="news-list" id="newsList"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ Neighbor-recommended businesses (edit in content.js; hidden while empty) ============ -->
+<section class="section section-alt" id="services" hidden>
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Recommended by neighbors</p>
+            <h2>Local pros we trust</h2>
+            <p>Businesses Bennett Woods residents have used and recommend. Know a great one? <a href="#contact">Tell us about it</a>.</p>
+        </div>
+        <div class="svc-grid" id="servicesList"></div>
+        <p class="fineprint">Recommendations come from neighbors. The neighborhood doesn't endorse or guarantee any business.</p>
+    </div>
+</section>
+
+<!-- ============ Contact ============ -->
+<section class="section section-mist" id="contact">
+    <div class="container narrow">
+        <div class="section-head">
+            <p class="eyebrow">Contact</p>
+            <h2>Get in touch</h2>
+            <p>Thinking about moving to Bennett Woods, want to join the Garden Club, or have a photo, event, or favorite local business to share? We'd love to hear from you.</p>
+        </div>
+        <div class="contact-card">
+            <!-- To switch the form on, set data-endpoint to a form service URL,
+                 e.g. data-endpoint="https://formspree.io/f/XXXXXXXX". Until then a fallback note shows instead. -->
+            <form id="contactForm" data-endpoint="" novalidate>
+                <div class="form-row">
+                    <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+                    <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+                </div>
+                <div class="field">
+                    <label for="interest">I'm interested in…</label>
+                    <select id="interest" name="interest" required>
+                        <option value="">Please choose</option>
+                        <option>Buying a home in Bennett Woods</option>
+                        <option>Moving to the area</option>
+                        <option>Joining the Garden Club</option>
+                        <option>Sharing a photo or news item</option>
+                        <option>Recommending a local business</option>
+                        <option>Adding an event</option>
+                        <option>Something else</option>
+                    </select>
+                </div>
+                <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+                <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <button type="submit" class="btn btn-forest" style="width:100%">Send message</button>
+                <p id="formStatus" class="form-status" role="status" hidden></p>
+            </form>
+            <div id="contactFallback" class="contact-fallback" hidden>
+                <h3 style="font-family:var(--serif);color:var(--forest);font-size:1.6rem">Our contact form is almost ready</h3>
+                <p>In the meantime, the best way to connect is to stop by a Garden Club event or say hi on an evening walk. Neighbors are always happy to talk about life in Bennett Woods.</p>
+                <a href="#life" class="btn btn-outline">Learn about the Garden Club</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <a href="#top" class="brand"><svg aria-hidden="true"><use href="#i-logo"/></svg>Bennett Woods</a>
+                <p>A neighborhood of 300+ homes between Concord Road and North Cooper Lake Road in Smyrna, Georgia.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#life">Life here</a></li>
+                    <li><a href="#schools">Schools</a></li>
+                    <li><a href="welcome.html">New neighbor guide</a></li>
+                    <li><a href="map.html">Full map</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div data-social-wrap hidden style="margin-top:1.75rem">
+                    <h4>Connect</h4>
+                    <ul data-social></ul>
                 </div>
             </div>
-        </div>
-
-        <div style="margin-top: 5rem; padding: 3rem; background: var(--color-light-sage); border-radius: 20px;">
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--color-dark-green); margin-bottom: 1.5rem;">🏫 King Springs Elementary School</h3>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--color-charcoal);">
-                Bennett Woods families are served by <strong>King Springs Elementary School</strong>, a highly-rated public school that earns an <strong>A grade from Niche</strong> and an <strong>8 out of 10 rating from GreatSchools</strong>. Ranked <strong>#86 among Georgia's best public elementary schools</strong> by Niche, King Springs offers exceptional education with a student-teacher ratio of 13:1 and strong academic performance—67% of students score proficient or above in reading and 58% in math.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--color-charcoal);">
-                Parents consistently praise King Springs for its caring staff, dedicated principal, and outstanding PTA involvement that creates a true sense of community. The school offers after-school programs in chess, art, music, and science, plus a gifted program serving 14% of students. As one parent wrote: "We feel a strong sense of community... our son has excelled and looks forward to going to school every day."
-            </p>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-                <a href="https://www.cobbk12.org/kingsprings" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0.8rem 1.5rem; background: var(--color-dark-green); color: var(--color-white); text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">Visit School Website</a>
-                <a href="https://www.greatschools.org/georgia/smyrna/497-King-Springs-Elementary-School/" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0.8rem 1.5rem; background: var(--color-sage); color: var(--color-white); text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">View GreatSchools Rating</a>
-                <a href="https://www.niche.com/k12/king-springs-elementary-school-smyrna-ga/" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0.8rem 1.5rem; background: var(--color-terracotta); color: var(--color-white); text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;">See Niche Profile</a>
+            <div>
+                <h4>Helpful numbers</h4>
+                <ul>
+                    <li><a href="tel:911">Emergency: 911</a></li>
+                    <li><a href="tel:+17704346666">Police non-emergency: (770) 434-6666</a></li>
+                    <li><a href="https://www.smyrnaga.gov/" target="_blank" rel="noopener">City of Smyrna</a></li>
+                </ul>
             </div>
         </div>
-
-        <div style="margin-top: 3rem; padding: 3rem; background: var(--color-cream); border-radius: 20px; border-left: 4px solid var(--color-terracotta);">
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--color-dark-green); margin-bottom: 1.5rem;">👶 Perfect for Growing Families</h3>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--color-charcoal);">
-                Bennett Woods is an ideal neighborhood for young and growing families. Unlike some of Smyrna's pricier areas, our community offers <strong>exceptional value without sacrificing quality</strong>. You'll find well-maintained homes at prices that make homeownership achievable for families just starting out.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--color-charcoal);">
-                Our streets are filled with children playing, neighbors gathering for block parties, and families taking evening walks. The combination of <strong>affordable homes, top-rated schools, and a tight-knit community</strong> makes Bennett Woods the smart choice for families who want to build roots without breaking the bank.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-charcoal);">
-                Many of our residents are first-time homebuyers and young professionals who discovered that Bennett Woods offers everything they need: safe streets, great schools, friendly neighbors, and home prices that allow them to invest in their future while maintaining a comfortable lifestyle.
-            </p>
-        </div>
-
-        <div style="margin-top: 3rem; padding: 3rem; background: var(--color-white); border-radius: 20px;">
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--color-dark-green); margin-bottom: 1.5rem;">🚶‍♂️ A Neighborhood Made for Living</h3>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--color-charcoal);">
-                One of the best things about Bennett Woods is how <strong>walkable and friendly</strong> it is. Any time of day, you'll see neighbors walking their dogs, kids riding bikes, and families cruising around in golf carts. The golf cart culture here is real—it's a fun, convenient way to get around the neighborhood, and it adds to that relaxed, community feel that makes Bennett Woods special.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--color-charcoal);">
-                Evening walks are a neighborhood tradition. Whether you're out with your dog, pushing a stroller, or just enjoying the tree-lined streets, you'll always run into friendly faces. It's the kind of place where neighbors stop to chat, kids play together, and everyone looks out for each other.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--color-charcoal);">
-                <strong>The Bennett Woods Garden Club</strong> is one of our most active community groups, keeping the neighborhood beautiful by maintaining the entrance signs and landscaping at all three entrances. Beyond beautification, the club brings neighbors together through fun events like the annual chili cook-off, Christmas wreath-making workshops, and floral arrangement classes. The club holds regular meetings and welcomes new members—whether you love gardening or just want to meet neighbors!
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-charcoal);">
-                <strong>Exciting news for Smyrna:</strong> The city recently adopted an ambitious downtown redevelopment plan that will transform downtown Smyrna with 350 new homes, restaurants, shops, green spaces, and the "Jonquil Mile" walking and biking trail. This once-in-a-generation project will create an even more vibrant downtown just minutes from Bennett Woods, adding tremendous value to our already fantastic location.
-            </p>
+        <div class="footer-bottom">
+            <span>&copy; <span data-year>2026</span> Bennett Woods Neighborhood</span>
+            <span>Smyrna, GA · Minutes from Atlanta</span>
         </div>
     </div>
-</section>
-
-<section id="announcements">
-    <div class="container">
-        <h2 class="section-title">Community News</h2>
-        <p class="section-subtitle">Stay updated with the latest happenings in Bennett Woods</p>
-        
-        <div class="announcements-container">
-            <div class="announcement-card">
-                <div class="announcement-date">February 20, 2026</div>
-                <h3>Welcome New Neighbors</h3>
-                <p>Please join us in welcoming several new families to Bennett Woods! If you see unfamiliar faces, introduce yourself and make them feel at home. Being part of this wonderful community starts with a friendly hello!</p>
-            </div>
-            <div class="announcement-card">
-                <div class="announcement-date">February 10, 2026</div>
-                <h3>Neighborhood Watch Reminder</h3>
-                <p>Friendly reminder to keep porch lights on during evening hours and report any suspicious activity to Smyrna PD non-emergency line at (770) 434-4381. Working together keeps our neighborhood safe!</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="map-section" style="background: var(--color-light-sage); padding: 8rem 3rem;">
-    <div class="container">
-        <h2 class="section-title">Explore the Area</h2>
-        <p class="section-subtitle">See Bennett Woods and all nearby amenities on our interactive map</p>
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="map.html" class="cta-button" style="background: var(--color-dark-green); display: inline-flex; align-items: center; gap: 10px;">
-                🗺️ View Interactive Map
-            </a>
-        </div>
-        <p style="text-align: center; margin-top: 1.5rem; color: var(--color-sage); font-size: 0.95rem;">
-            Click markers for detailed information and directions to schools, parks, shopping, and more!
-        </p>
-    </div>
-</section>
-
-<section id="services">
-    <div class="container">
-        <h2 class="section-title">Local Services</h2>
-        <p class="section-subtitle">Trusted service providers recommended by Bennett Woods residents</p>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <h4>🏡 Landscaping & Lawn Care</h4>
-                <p>Professional lawn maintenance and landscaping services serving our area</p>
-            </div>
-            <div class="service-card">
-                <h4>🔧 Home Repairs</h4>
-                <p>Licensed contractors for plumbing, electrical, and general home repairs</p>
-            </div>
-            <div class="service-card">
-                <h4>🎨 Painting Services</h4>
-                <p>Interior and exterior painting professionals with local references</p>
-            </div>
-            <div class="service-card">
-                <h4>🐕 Pet Services</h4>
-                <p>Dog walking, pet sitting, and grooming services in the neighborhood</p>
-            </div>
-            <div class="service-card">
-                <h4>🧹 Cleaning Services</h4>
-                <p>Residential cleaning and organizing services trusted by neighbors</p>
-            </div>
-            <div class="service-card">
-                <h4>📦 Moving & Delivery</h4>
-                <p>Local movers and delivery services recommended by residents</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Interested in learning more about Bennett Woods or moving to our community? We'd love to hear from you!</p>
-        
-        <div class="contact-wrapper">
-            <div class="contact-form">
-                <div id="successMessage" class="success-message">
-                    Thank you for your message! We'll get back to you soon.
-                </div>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="interest">I'm interested in... *</label>
-                        <select id="interest" name="interest" required>
-                            <option value="">Please select</option>
-                            <option value="buying">Buying a home in Bennett Woods</option>
-                            <option value="moving">Moving to the area</option>
-                            <option value="general">General information</option>
-                            <option value="services">Local services</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <div class="logo">Bennett Woods</div>
-    <p>Smyrna's Premier Neighborhood</p>
-    <p>Located in Smyrna, GA | Minutes from Atlanta</p>
-    <div class="footer-links">
-        <a href="#" title="Facebook">📘</a>
-        <a href="#" title="Instagram">📷</a>
-        <a href="#" title="Email">✉️</a>
-    </div>
-    <p style="margin-top: 2rem;">&copy; 2026 Bennett Woods Neighborhood. All rights reserved.</p>
 </footer>
 
-<script>
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    menuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Close menu when clicking a link
-    document.querySelectorAll('#navMenu a').forEach(link => {
-        link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const successMessage = document.getElementById('successMessage');
-        successMessage.style.display = 'block';
-        
-        this.reset();
-        
-        successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        
-        setTimeout(() => {
-            successMessage.style.display = 'none';
-        }, 5000);
-    });
-
-    // Scroll reveal animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    document.querySelectorAll('.feature-card, .gallery-item, .stat-card, .safety-item, .announcement-card, .service-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-</script>
-
+<script src="content.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

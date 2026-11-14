@@ -1,364 +1,93 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bennett Woods Interactive Map</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-    :root {
-        --color-cream: #faf8f4;
-        --color-dark-green: #1a3a2e;
-        --color-sage: #7d9d8c;
-        --color-terracotta: #d4896b;
-        --color-charcoal: #2d2d2d;
-    }
-
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #1a3a2e 0%, #2d5a47 100%);
-        padding: 0;
-        padding-top: 80px;
-    }
-
-    /* Navigation */
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        background: rgba(250, 248, 244, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    nav .nav-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 1.5rem 3rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--color-dark-green);
-        letter-spacing: -0.02em;
-        text-decoration: none;
-    }
-
-    nav ul {
-        display: flex;
-        gap: 2.5rem;
-        list-style: none;
-    }
-
-    nav a {
-        color: var(--color-charcoal);
-        text-decoration: none;
-        font-size: 0.95rem;
-        font-weight: 500;
-        transition: color 0.3s;
-        position: relative;
-    }
-
-    nav a:hover {
-        color: var(--color-dark-green);
-    }
-
-    /* Hamburger Menu */
-    .menu-toggle {
-        display: none;
-        flex-direction: column;
-        gap: 6px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 5px;
-    }
-
-    .menu-toggle span {
-        width: 30px;
-        height: 3px;
-        background: var(--color-dark-green);
-        border-radius: 3px;
-        transition: all 0.3s;
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(8px, -8px);
-    }
-
-    .page-content {
-        padding: 20px;
-    }
-
-    .container {
-        max-width: 1400px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    }
-
-    h1 {
-        font-size: 2.5rem;
-        color: #1a3a2e;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .subtitle {
-        text-align: center;
-        color: #7d9d8c;
-        margin-bottom: 30px;
-        font-size: 1.1rem;
-    }
-
-    .map-wrapper {
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        border: 3px solid #7d9d8c;
-    }
-
-    iframe {
-        width: 100%;
-        height: 600px;
-        border: none;
-        display: block;
-    }
-
-    .info-box {
-        background: #f0f4f0;
-        padding: 20px;
-        border-radius: 15px;
-        margin-top: 25px;
-        border-left: 4px solid #d4896b;
-    }
-
-    .info-box h4 {
-        color: #1a3a2e;
-        margin-bottom: 12px;
-        font-size: 1.3rem;
-    }
-
-    .info-box p {
-        color: #666;
-        line-height: 1.8;
-        font-size: 1rem;
-    }
-
-    .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin-top: 30px;
-    }
-
-    .feature-card {
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
-        text-align: center;
-        transition: transform 0.3s;
-    }
-
-    .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    .feature-icon {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-    }
-
-    .feature-card h5 {
-        color: #1a3a2e;
-        margin-bottom: 8px;
-        font-size: 1.1rem;
-    }
-
-    .feature-card p {
-        color: #666;
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
-
-    @media (max-width: 768px) {
-        h1 {
-            font-size: 1.8rem;
-        }
-
-        .page-content {
-            padding: 15px;
-        }
-
-        nav .nav-container {
-            padding: 1rem 1.5rem;
-        }
-
-        .menu-toggle {
-            display: flex;
-        }
-
-        nav ul {
-            position: fixed;
-            top: 70px;
-            left: -100%;
-            width: 100%;
-            height: calc(100vh - 70px);
-            background: var(--color-cream);
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 2rem 0;
-            gap: 0;
-            transition: left 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        nav ul.active {
-            left: 0;
-        }
-
-        nav ul li {
-            width: 100%;
-            text-align: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        nav a {
-            font-size: 1.1rem;
-            display: block;
-            padding: 0.5rem 0;
-        }
-
-        .container {
-            padding: 15px;
-        }
-
-        iframe {
-            height: 400px;
-        }
-
-        .features {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Map | Bennett Woods, Smyrna GA</title>
+<meta name="description" content="Interactive map of Bennett Woods in Smyrna, Georgia, with nearby schools, parks, trails, shopping and first responders.">
+<link rel="canonical" href="https://bennettwoodssmyrna.com/map.html">
+<meta name="theme-color" content="#1a3a2e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bennett Woods Interactive Map">
+<meta property="og:description" content="See Bennett Woods and nearby schools, parks, trails and shopping in Smyrna, Georgia.">
+<meta property="og:url" content="https://bennettwoodssmyrna.com/map.html">
+<meta property="og:image" content="https://bennettwoodssmyrna.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Bennett Woods</a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul id="navMenu">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#gallery">Gallery</a></li>
-                <li><a href="index.html#stats">Stats</a></li>
-                <li><a href="index.html#announcements">News</a></li>
-                <li><a href="map.html">Map</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<a class="skip-link" href="#main">Skip to content</a>
 
-```
-<div class="page-content">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <symbol id="i-logo" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#1a3a2e"/><path d="M16 6.5 10.5 14h3l-4.5 6.5h14L18.5 14h3z" fill="#f1c7b5"/><rect x="15" y="20.5" width="2" height="5" rx="1" fill="#f1c7b5"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    </defs>
+</svg>
+
+<header class="site-nav">
     <div class="container">
-    <h1>🗺️ Bennett Woods Interactive Map</h1>
-    <p class="subtitle">Explore our neighborhood and nearby amenities - Click markers for details and directions!</p>
-    
-    <div class="map-wrapper">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1jZPPcxgoj9wQqMu9Zc8Mc01lxwLM-J8&ehbc=2E312F&noprof=1"></iframe>
+        <a href="index.html" class="brand"><svg aria-hidden="true"><use href="#i-logo"/></svg>Bennett Woods</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="navMenu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav aria-label="Main">
+            <ul class="nav-links" id="navMenu">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#schools">Schools</a></li>
+                <li><a href="index.html#safety">Safety</a></li>
+                <li><a href="map.html" aria-current="page">Map</a></li>
+                <li><a href="index.html#happenings">News &amp; Events</a></li>
+                <li><a href="welcome.html">New Neighbors</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Get in touch</a></li>
+            </ul>
+        </nav>
     </div>
+</header>
 
-    <div class="info-box">
-        <h4>📍 About Bennett Woods</h4>
-        <p>Bennett Woods is a neighborhood of over 300 homes located between Concord Road and North Cooper Lake Road in Smyrna, Georgia. Just 15 minutes from downtown Atlanta with easy access to parks, trails, top-rated schools, and shopping!</p>
+<main id="main">
+    <section class="page-hero">
+        <div class="container">
+            <p class="eyebrow">Explore</p>
+            <h1>Bennett Woods map</h1>
+            <p>Over 300 homes between Concord Road and North Cooper Lake Road. Tap a marker for details and directions.</p>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top:3rem">
+        <div class="container">
+            <div class="map-frame">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1jZPPcxgoj9wQqMu9Zc8Mc01lxwLM-J8&amp;ehbc=2E312F&amp;noprof=1" title="Interactive map of Bennett Woods and nearby places" style="height:min(75vh,760px)" allowfullscreen></iframe>
+            </div>
+            <ul class="places">
+                <li><b>King Springs Elementary</b><span>A on Niche, 8/10 on GreatSchools</span></li>
+                <li><b>Fire Station 2</b><span>642 Concord Rd, ~4 min response</span></li>
+                <li><b>North Cooper Lake Park</b><span>Walking trails, gardens, open space</span></li>
+                <li><b>Silver Comet Trail</b><span>61.5-mile paved trail for biking &amp; walking</span></li>
+                <li><b>Publix</b><span>Full-service grocery minutes away</span></li>
+                <li><b>Downtown Smyrna</b><span>Market Village shops &amp; restaurants</span></li>
+            </ul>
+            <div class="btn-row" style="justify-content:center;margin-top:2.5rem">
+                <a href="index.html" class="btn btn-outline"><svg aria-hidden="true"><use href="#i-arrow"/></svg>Back to home</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-bottom" style="margin-top:0;border-top:0;padding-top:0">
+            <span>&copy; <span data-year>2026</span> Bennett Woods Neighborhood</span>
+            <span>Smyrna, GA · Minutes from Atlanta</span>
+        </div>
     </div>
+</footer>
 
-    <div class="features">
-        <div class="feature-card">
-            <div class="feature-icon">🏫</div>
-            <h5>King Springs Elementary</h5>
-            <p>A-rated school, 8/10 GreatSchools, #86 in Georgia</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🚒</div>
-            <h5>Fire Station #2</h5>
-            <p>~4 minute response, right on Concord Rd</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🌳</div>
-            <h5>North Cooper Lake Park</h5>
-            <p>Walking trails, gardens, and open spaces</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🚴</div>
-            <h5>Silver Comet Trail</h5>
-            <p>61.5-mile paved trail for biking & walking</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🛒</div>
-            <h5>Publix Nearby</h5>
-            <p>Full-service grocery just minutes away</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🏙️</div>
-            <h5>Downtown Smyrna</h5>
-            <p>Market Village with shops & restaurants</p>
-        </div>
-    </div>
-</div>
-
-<script>
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    menuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Close menu when clicking a link
-    document.querySelectorAll('#navMenu a').forEach(link => {
-        link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-</script>
-
+<script src="content.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
