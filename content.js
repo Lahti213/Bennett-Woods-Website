@@ -30,6 +30,11 @@ window.BW = {
     newsMaxAgeDays: 365,
     news: [
         {
+            date: "2026-11-14",
+            title: "Native plants at all three entrances",
+            text: "All three neighborhood entrances have been replanted with native plants, thanks to the Garden Club and the neighbors who pitched in. Native plants need less water and support local pollinators. Take a look next time you drive in!"
+        },
+        {
             date: "2026-02-20",
             title: "Welcome, new neighbors",
             text: "Several new families have joined Bennett Woods! If you see unfamiliar faces, say hello and help them feel at home."
