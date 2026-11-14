@@ -85,7 +85,8 @@
         news.forEach(function (n) {
             newsList.appendChild(el('article', { class: 'news-item' }, [
                 dateBadge(parseDate(n.date)),
-                el('div', {}, [el('h3', { text: n.title }), el('p', { text: n.text })])
+                el('div', {}, [el('h3', { text: n.title }), el('p', { text: n.text }),
+                    n.link && n.link.url ? el('a', { class: 'cal-link', href: n.link.url, target: '_blank', rel: 'noopener', text: n.link.label || 'Read more' }) : null])
             ]));
         });
         if (news.length) show('newsBlock');

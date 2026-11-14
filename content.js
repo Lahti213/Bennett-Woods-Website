@@ -26,13 +26,15 @@ window.BW = {
     /* ---------- News ----------
        Newest first. Items older than `newsMaxAgeDays` are hidden
        automatically so the site never looks stale.
+       Optional: add  link: { label: "Read more", url: "https://..." }  to show a link.
     */
     newsMaxAgeDays: 365,
     news: [
         {
             date: "2026-11-14",
             title: "Native plants at all three entrances",
-            text: "All three neighborhood entrances have been replanted with native plants, thanks to the Garden Club and the neighbors who pitched in. Native plants need less water and support local pollinators. Take a look next time you drive in!"
+            text: "All three neighborhood entrances have been replanted with native plants, thanks to the Garden Club and the neighbors who pitched in. Native plants need less water and support local pollinators. Take a look next time you drive in! Want to plant natives at home? Keep Smyrna Beautiful has ideas and events.",
+            link: { label: "Keep Smyrna Beautiful", url: "https://linktr.ee/keepsmyrnabeautiful" }
         },
         {
             date: "2026-02-20",
