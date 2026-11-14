@@ -71,11 +71,11 @@
         <nav aria-label="Main">
             <ul class="nav-links" id="navMenu">
                 <li><a href="#about">About</a></li>
-                <li><a href="#life">Life Here</a></li>
                 <li><a href="#schools">Schools</a></li>
                 <li><a href="#safety">Safety</a></li>
                 <li><a href="#map">Map</a></li>
-                <li><a href="#news">News</a></li>
+                <li><a href="#happenings">News &amp; Events</a></li>
+                <li><a href="welcome.html">New Neighbors</a></li>
                 <li><a href="#contact" class="nav-cta">Get in touch</a></li>
             </ul>
         </nav>
@@ -202,6 +202,24 @@
     </div>
 </section>
 
+<!-- ============ Gallery (photos listed in content.js; hidden until there are some) ============ -->
+<section class="section" id="gallery" hidden>
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Gallery</p>
+            <h2>Around the neighborhood</h2>
+            <p>Photos shared by Bennett Woods neighbors. Tap any photo to see it larger.</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+</section>
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <figure><img src="" alt=""><figcaption></figcaption></figure>
+    <button type="button" class="lb-btn lb-close" data-close aria-label="Close">&times;</button>
+    <button type="button" class="lb-btn lb-prev" data-prev aria-label="Previous photo">&#8249;</button>
+    <button type="button" class="lb-btn lb-next" data-next aria-label="Next photo">&#8250;</button>
+</dialog>
+
 <!-- ============ Schools ============ -->
 <section class="section" id="schools">
     <div class="container">
@@ -286,31 +304,36 @@
     </div>
 </section>
 
-<!-- ============ News ============
-     To post an update, copy one <article class="news-item"> block, put it at the TOP of the list,
-     and change the date, title and text. Remove items once they're out of date. -->
-<section class="section" id="news">
-    <div class="container narrow">
+<!-- ============ News & Events (edit them in content.js) ============ -->
+<section class="section" id="happenings" hidden>
+    <div class="container">
         <div class="section-head">
-            <p class="eyebrow">Community news</p>
+            <p class="eyebrow">News &amp; events</p>
             <h2>What's happening</h2>
         </div>
-        <div class="news-list">
-            <article class="news-item reveal">
-                <time class="news-date" datetime="2026-02-20"><span class="m">Feb</span><span class="d">20</span><span class="y">2026</span></time>
-                <div>
-                    <h3>Welcome, new neighbors</h3>
-                    <p>Several new families have joined Bennett Woods! If you see unfamiliar faces, say hello and help them feel at home.</p>
-                </div>
-            </article>
-            <article class="news-item reveal">
-                <time class="news-date" datetime="2026-02-10"><span class="m">Feb</span><span class="d">10</span><span class="y">2026</span></time>
-                <div>
-                    <h3>Neighborhood watch reminder</h3>
-                    <p>Keep porch lights on in the evening and report suspicious activity to the Smyrna PD non-emergency line at <a href="tel:+17704346666">(770) 434-6666</a>. For emergencies, always call 911.</p>
-                </div>
-            </article>
+        <div class="happenings-grid">
+            <div id="eventsBlock" hidden>
+                <h3 class="col-title">Upcoming events</h3>
+                <div class="news-list" id="eventsList"></div>
+            </div>
+            <div id="newsBlock" hidden>
+                <h3 class="col-title">Latest news</h3>
+                <div class="news-list" id="newsList"></div>
+            </div>
         </div>
+    </div>
+</section>
+
+<!-- ============ Neighbor-recommended businesses (edit in content.js; hidden while empty) ============ -->
+<section class="section section-alt" id="services" hidden>
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Recommended by neighbors</p>
+            <h2>Local pros we trust</h2>
+            <p>Businesses Bennett Woods residents have used and recommend. Know a great one? <a href="#contact">Tell us about it</a>.</p>
+        </div>
+        <div class="svc-grid" id="servicesList"></div>
+        <p class="fineprint">Recommendations come from neighbors. The neighborhood doesn't endorse or guarantee any business.</p>
     </div>
 </section>
 
@@ -320,7 +343,7 @@
         <div class="section-head">
             <p class="eyebrow">Contact</p>
             <h2>Get in touch</h2>
-            <p>Thinking about moving to Bennett Woods, want to join the Garden Club, or have a photo or news item to share? We'd love to hear from you.</p>
+            <p>Thinking about moving to Bennett Woods, want to join the Garden Club, or have a photo, event, or favorite local business to share? We'd love to hear from you.</p>
         </div>
         <div class="contact-card">
             <!-- To switch the form on, set data-endpoint to a form service URL,
@@ -338,6 +361,8 @@
                         <option>Moving to the area</option>
                         <option>Joining the Garden Club</option>
                         <option>Sharing a photo or news item</option>
+                        <option>Recommending a local business</option>
+                        <option>Adding an event</option>
                         <option>Something else</option>
                     </select>
                 </div>
@@ -368,10 +393,16 @@
                 <h4>Explore</h4>
                 <ul>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#life">Life here</a></li>
                     <li><a href="#schools">Schools</a></li>
+                    <li><a href="welcome.html">New neighbor guide</a></li>
                     <li><a href="map.html">Full map</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <div data-social-wrap hidden style="margin-top:1.75rem">
+                    <h4>Connect</h4>
+                    <ul data-social></ul>
+                </div>
             </div>
             <div>
                 <h4>Helpful numbers</h4>
@@ -389,6 +420,7 @@
     </div>
 </footer>
 
+<script src="content.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
