@@ -352,12 +352,15 @@
             <p>Thinking about moving to Bennett Woods, want to join the Garden Club, or have a photo, event, or favorite local business to share? We'd love to hear from you.</p>
         </div>
         <div class="contact-card">
-            <!-- To switch the form on, set data-endpoint to a form service URL,
-                 e.g. data-endpoint="https://formspree.io/f/XXXXXXXX". Until then a fallback note shows instead. -->
-            <form id="contactForm" data-endpoint="" novalidate>
+            <!-- Messages go to Formspree (https://formspree.io/f/xvzbazvv), which emails them on.
+                 With JavaScript on, main.js sends the form in the background and shows the result here.
+                 Without JavaScript, the browser posts to Formspree directly and shows its thank-you page.
+                 If action is ever emptied, the form hides and the fallback note below shows instead. -->
+            <form id="contactForm" action="https://formspree.io/f/xvzbazvv" method="POST">
+                <input type="hidden" name="_subject" value="Bennett Woods website message">
                 <div class="form-row">
-                    <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
-                    <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+                    <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required data-fs-field></div>
+                    <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required data-fs-field></div>
                 </div>
                 <div class="field">
                     <label for="interest">I'm interested in…</label>
@@ -372,7 +375,7 @@
                         <option>Something else</option>
                     </select>
                 </div>
-                <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+                <div class="field"><label for="message">Message</label><textarea id="message" name="message" required data-fs-field></textarea></div>
                 <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <button type="submit" class="btn btn-forest" style="width:100%">Send message</button>
                 <p id="formStatus" class="form-status" role="status" hidden></p>
