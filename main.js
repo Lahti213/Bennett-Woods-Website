@@ -198,35 +198,54 @@
         });
     }
 
-    // Contact form. Set data-endpoint on the form (e.g. a Formspree URL) to switch it on.
-    // Until then, the form stays hidden and a fallback message shows, so visitors'
-    // messages never silently disappear.
+    // Contact form → Formspree (endpoint is the form's action attribute).
+    // If action is empty, the form hides and a fallback note shows, so messages never silently disappear.
     var form = document.getElementById('contactForm');
     var fallback = document.getElementById('contactFallback');
     if (form) {
-        var endpoint = (form.getAttribute('data-endpoint') || '').trim();
+        var endpoint = (form.getAttribute('action') || '').trim();
         if (!endpoint) {
             form.hidden = true;
             if (fallback) fallback.hidden = false;
         } else {
             var status = document.getElementById('formStatus');
+            var btn = form.querySelector('button[type="submit"]');
+            var subject = form.querySelector('input[name="_subject"]');
+            var interest = form.querySelector('#interest');
+            function showStatus(kind, text) {
+                status.className = 'form-status ' + kind;
+                status.textContent = text;
+                status.hidden = false;
+            }
+            form.addEventListener('input', function (e) { e.target.removeAttribute('aria-invalid'); });
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
-                var btn = form.querySelector('button[type="submit"]');
+                if (!form.reportValidity()) return;
+                if (subject && interest && interest.value) subject.value = 'Bennett Woods website: ' + interest.value;
+                status.hidden = true;
                 btn.disabled = true; btn.textContent = 'Sending…';
                 fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
                     .then(function (r) {
-                        if (!r.ok) throw new Error('Request failed');
-                        status.className = 'form-status ok';
-                        status.textContent = 'Thanks! Your message is on its way. A neighbor will get back to you soon.';
-                        form.reset();
+                        return r.json().catch(function () { return {}; }).then(function (data) {
+                            if (r.ok) {
+                                form.reset();
+                                showStatus('ok', "Thanks! Your message is on its way, and a neighbor will get back to you soon.");
+                                return;
+                            }
+                            // Formspree returns { errors: [{ field, message }] } for problems it can explain.
+                            var errors = (data && data.errors) || [];
+                            errors.forEach(function (err) {
+                                var field = err.field && form.querySelector('[name="' + err.field + '"]');
+                                if (field) field.setAttribute('aria-invalid', 'true');
+                            });
+                            var msg = errors.map(function (err) { return err.message; }).filter(Boolean).join(' ');
+                            showStatus('err', msg ? 'Please check the form: ' + msg : 'Sorry, your message could not be sent. Please try again in a moment.');
+                        });
                     })
                     .catch(function () {
-                        status.className = 'form-status err';
-                        status.textContent = 'Sorry, something went wrong sending your message. Please try again in a moment.';
+                        showStatus('err', 'Sorry, your message could not be sent. Please check your connection and try again.');
                     })
                     .finally(function () {
-                        status.hidden = false;
                         btn.disabled = false; btn.textContent = 'Send message';
                     });
             });

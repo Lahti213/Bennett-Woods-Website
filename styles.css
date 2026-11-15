@@ -305,6 +305,8 @@ a:hover { color: var(--clay-dark); }
 }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--sage-light); box-shadow: 0 0 0 4px rgba(125,157,140,.18); }
 .field textarea { min-height: 140px; resize: vertical; }
+.field [aria-invalid="true"] { border-color: #c0532f; box-shadow: 0 0 0 4px rgba(192,83,47,.15); }
+.btn:disabled { opacity: .7; cursor: progress; transform: none; }
 .hp { position: absolute; left: -9999px; }
 .form-status { margin-top: 1rem; padding: 1rem 1.25rem; border-radius: var(--radius-sm); font-weight: 500; }
 .form-status.ok { background: #e3f1e7; color: #1d5130; }

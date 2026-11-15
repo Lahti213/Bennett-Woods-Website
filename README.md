@@ -14,7 +14,7 @@ Almost everything you'll want to change lives in **`content.js`**:
 | Recommended businesses | `services` | The section stays hidden while the list is empty |
 | Facebook / Nextdoor links | `social` | Shown in the footer and on the New Neighbors page |
 
-Contact form: in `index.html`, set `data-endpoint` on `<form id="contactForm">` to a form service URL (e.g. Formspree). Until it's set, a friendly note shows instead of the form.
+Contact form: messages go to Formspree (`https://formspree.io/f/xvzbazvv`, set as the `action` on `<form id="contactForm">` in `index.html`). Manage where they are emailed, spam filtering and the message archive in your Formspree dashboard.
 
 ## Files
 
