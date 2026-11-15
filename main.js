@@ -223,6 +223,7 @@
                 if (!form.reportValidity()) return;
                 if (subject && interest && interest.value) subject.value = 'Bennett Woods website: ' + interest.value;
                 status.hidden = true;
+                var redirecting = false;
                 btn.disabled = true; btn.textContent = 'Sending…';
                 fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
                     .then(function (r) {
@@ -232,20 +233,31 @@
                                 showStatus('ok', "Thanks! Your message is on its way, and a neighbor will get back to you soon.");
                                 return;
                             }
-                            // Formspree returns { errors: [{ field, message }] } for problems it can explain.
+                            // Formspree returns { errors: [{ field, message }] } for problems with a field.
                             var errors = (data && data.errors) || [];
-                            errors.forEach(function (err) {
+                            var fieldErrors = errors.filter(function (err) {
                                 var field = err.field && form.querySelector('[name="' + err.field + '"]');
                                 if (field) field.setAttribute('aria-invalid', 'true');
+                                return !!field;
                             });
-                            var msg = errors.map(function (err) { return err.message; }).filter(Boolean).join(' ');
-                            showStatus('err', msg ? 'Please check the form: ' + msg : 'Sorry, your message could not be sent. Please try again in a moment.');
+                            if (fieldErrors.length) {
+                                var msg = fieldErrors.map(function (err) { return err.message; }).filter(Boolean).join(' ');
+                                showStatus('err', 'Please check the form: ' + (msg || 'one of the fields needs another look.'));
+                                return;
+                            }
+                            // Anything else (for example Formspree's reCAPTCHA check, which can't run in the
+                            // background) — hand the form to Formspree's own page so the message still gets through.
+                            if (window.console) console.warn('Formspree background send refused:', r.status, data);
+                            redirecting = true;
+                            btn.textContent = 'Sending…';
+                            HTMLFormElement.prototype.submit.call(form);
                         });
                     })
                     .catch(function () {
                         showStatus('err', 'Sorry, your message could not be sent. Please check your connection and try again.');
                     })
                     .finally(function () {
+                        if (redirecting) return;
                         btn.disabled = false; btn.textContent = 'Send message';
                     });
             });
